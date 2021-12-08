@@ -3,17 +3,13 @@
 ## Introduction
 
 This guide describes how to use Debos tool to generate one system image as well
-as the maintenance of the repository,
+as the maintenance of the repository.
 
 ## Maintenance
 
-### Deploy with Jenkins
+### Deploy with github
 
-Here need Jenkinsfile and Jenkins.
-
-### Deploy with gitlab
-
-Here need .gitlab and gitlab.
+Github CI is needed.
 
 ### How to debug?
 
