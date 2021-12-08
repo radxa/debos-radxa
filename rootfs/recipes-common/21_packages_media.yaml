@@ -1,0 +1,8 @@
+        gstreamer1.0-plugins-base, gstreamer1.0-tools, gstreamer1.0-alsa,
+        gstreamer1.0-plugins-good, gstreamer1.0-plugins-bad, alsa-utils,
+
+        libqt5opengl5, libqt5qml5, libqt5quick5, libqt5widgets5, libqt5gui5,
+        libqt5core5a, qml-module-qtquick2,
+
+        libsdl2-2.0-0, libcdio-paranoia1, libjs-bootstrap, libjs-jquery,
+

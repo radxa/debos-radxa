@@ -1,0 +1,21 @@
+  - action: image-partition
+    imagename: system.img
+    imagesize: {{$imagesize}}
+    partitiontype: msdos
+    mountpoints:
+      - mountpoint: /
+        partition: rootfs
+      - mountpoint: /boot
+        partition: boot
+        options: [ x-systemd.automount ]
+    partitions:
+      - name: boot
+        fs: fat32
+        start: 32768S
+        end: {{$bootpartitionend}}
+        flags: [ boot, esp ]
+      - name: rootfs
+        fs: ext4
+        start: {{$rootpartitionstart}}
+        end: 100%
+

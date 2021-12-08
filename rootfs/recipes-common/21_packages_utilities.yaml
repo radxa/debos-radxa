@@ -1,0 +1,17 @@
+        adduser, apt, apt-transport-https, debsums, e2fsprogs, fake-hwclock,
+        gdisk, ifupdown, kmod, netbase, parted, pciutils, psmisc,
+        software-properties-common, sudo, sysstat, systemd, systemd-sysv,
+        udev, u-boot-tools,
+
+        autoconf,
+
+        nano, vim,
+
+        bash-completion,
+
+        gstreamer1.0-tools,
+
+        initramfs-tools, zip, unzip, dirmngr, file, htop, jq, mtd-utils, rfkill,
+        rsync, usbutils, xz-utils, gnupg, gnupg1, gnupg2, kbd, sysfsutils, findutils,
+        i2c-tools, dosfstools,
+

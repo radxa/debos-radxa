@@ -1,0 +1,4 @@
+  - action: run
+    chroot: true
+    script: scripts/add_apt_sources.sh {{$model}} {{$suite}} {{$apt_repo}}
+

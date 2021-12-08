@@ -1,0 +1,4 @@
+        gstreamer1.0-x, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
+        gstreamer1.0-plugins-bad, gstreamer1.0-plugins-ugly, libxml2,
+        libpcap0.8, libaudit1, libnotify4,
+

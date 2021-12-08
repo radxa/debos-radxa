@@ -1,0 +1,17 @@
+#!/bin/sh -e
+  
+cat >> /etc/NetworkManager/NetworkManager.conf <<EOF
+ 
+[device]
+wifi.scan-rand-mac-address=no
+EOF
+
+# Overwrite resolv.conf
+rm -rf /etc/resolv.conf
+cat > /etc/resolv.conf <<EOF
+search lan
+nameserver 8.8.8.8
+EOF
+
+rm -rf /script /usr/lib/u-boot-`cat /etc/hostname`
+

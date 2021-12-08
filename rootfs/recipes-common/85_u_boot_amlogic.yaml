@@ -1,0 +1,11 @@
+# Raw write u-boot images to filesystem
+  - action: raw
+    origin: filesystem
+    source: /usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.1
+    offset: '{{ sector 0 }}'
+
+  - action: raw
+    origin: filesystem
+    source: /usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.2
+    offset: '{{ sector 1 }}'
+

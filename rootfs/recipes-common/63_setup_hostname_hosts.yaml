@@ -1,0 +1,4 @@
+  - action: run
+    chroot: true
+    script: scripts/setup_hostname_hosts.sh {{$board}}
+

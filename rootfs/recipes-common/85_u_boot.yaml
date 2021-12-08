@@ -1,0 +1,16 @@
+# Raw write u-boot images to filesystem
+  - action: raw
+    origin: filesystem
+    source: /usr/lib/u-boot-{{$board}}/idbloader.img
+    offset: '{{ sector 64 }}'
+
+  - action: raw
+    origin: filesystem
+    source: /usr/lib/u-boot-{{$board}}/uboot.img
+    offset: '{{ sector 16384 }}'
+
+  - action: raw
+    origin: filesystem
+    source: /usr/lib/u-boot-{{$board}}/trust.img
+    offset: '{{ sector 24576 }}'
+

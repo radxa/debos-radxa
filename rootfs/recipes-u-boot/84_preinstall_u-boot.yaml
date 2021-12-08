@@ -1,0 +1,4 @@
+  - action: run
+    chroot: true
+    script: scripts/preinstall_u_boot.sh {{$board}}
+

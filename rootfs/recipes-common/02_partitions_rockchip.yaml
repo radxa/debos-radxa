@@ -1,0 +1,33 @@
+  - action: image-partition
+    imagename: system.img
+    imagesize: {{$imagesize}}
+    partitiontype: gpt
+    mountpoints:
+      - mountpoint: /
+        partition: rootfs
+      - mountpoint: /boot
+        partition: boot
+        options: [ x-systemd.automount ]
+    partitions:
+      - name: loader1
+        fs: fat32
+        start: 64S
+        end: 8063S
+      - name: loader2
+        fs: fat32
+        start: 16384S
+        end: 24575S
+      - name: trust
+        fs: fat32
+        start: 24576S
+        end: 32767S
+      - name: boot
+        fs: fat32
+        start: 32768S
+        end: {{$bootpartitionend}}
+        flags: [ boot, esp ]
+      - name: rootfs
+        fs: ext4
+        start: {{$rootpartitionstart}}
+        end: 100%
+

@@ -1,0 +1,4 @@
+  - action: run
+    chroot: true
+    script: scripts/fix_resolv_conf.sh
+

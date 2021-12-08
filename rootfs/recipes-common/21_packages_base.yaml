@@ -1,0 +1,16 @@
+        sudo, systemd, systemd-sysv, gdisk, parted, u-boot-tools,
+
+        linux-base,
+
+        initramfs-tools, util-linux, rfkill, file, findutils,
+
+        vim,
+
+        bc,
+
+        net-tools, isc-dhcp-client, iputils-ping, network-manager,
+        openssh-client, openssh-server, ssh, bluez,
+
+        gnupg2,
+
+        i2c-tools,

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+CURDIR="$PWD"
+
+case $(uname -s) in
+  Linux)
+    echo "Building Docker environment..."
+    docker build  -t debos-radxa:1 docker/
+    echo "Enter Docker container..."
+    exec docker run \
+      --rm \
+      --interactive --tty \
+      --device /dev/kvm \
+      --security-opt label=disable \
+      --env HOME \
+      --privileged \
+      --hostname terra \
+      --volume "${CURDIR}:${CURDIR}" \
+      --workdir "${CURDIR}" \
+      debos-radxa:1 \
+    ;;
+  *)
+    echo "Not supported: $(uname -s)"
+    exit 1
+  ;;
+esac
