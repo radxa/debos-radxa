@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set variables
+        run: echo "VERSION=$(date +%Y%m%d-%H%M)" >> $GITHUB_ENV
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
@@ -36,4 +38,5 @@ jobs:
         with:
           artifacts: './artifacts/*/*'
           token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.VERSION }}
           commit: main
