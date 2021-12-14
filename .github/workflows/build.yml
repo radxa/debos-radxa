@@ -1,0 +1,39 @@
+name: Build and publish
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        BOARD: [radxa-e23, rock-3a]
+        MODEL: [debian, ubuntu]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build image
+        run: |
+          docker run --rm --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
+          --workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./scripts/build-supported-configuration.sh godebos/debos \
+          -b ${{ matrix.BOARD }} -m ${{ matrix.MODEL }}
+      - name: Upload image
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.BOARD }}-${{ matrix.MODEL }}
+          path: ./output/*.img.*
+  publish:
+    runs-on: ubuntu-latest
+    needs: [ build ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          path: ./artifacts
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: './artifacts/*/*'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit: main

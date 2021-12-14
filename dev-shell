@@ -4,20 +4,17 @@ CURDIR="$PWD"
 
 case $(uname -s) in
   Linux)
-    echo "Building Docker environment..."
-    docker build  -t debos-radxa:1 docker/
     echo "Enter Docker container..."
     exec docker run \
       --rm \
       --interactive --tty \
       --device /dev/kvm \
+      --user $(id -u) \
       --security-opt label=disable \
-      --env HOME \
-      --privileged \
-      --hostname terra \
-      --volume "${CURDIR}:${CURDIR}" \
       --workdir "${CURDIR}" \
-      debos-radxa:1 \
+      --mount "type=bind,source=${CURDIR},destination=${CURDIR}" \\
+      --entrypoint /bin/bash
+      godebos/debos \
     ;;
   *)
     echo "Not supported: $(uname -s)"
