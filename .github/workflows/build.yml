@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        BOARD: [radxa-e23, rock-3a]
+        BOARD: [radxa-e23, rock-3a, radxa-zero]
         MODEL: [debian, ubuntu]
     steps:
       - name: Checkout

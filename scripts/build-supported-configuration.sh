@@ -12,6 +12,8 @@ usage() {
     echo "  ./$0 -b radxa-e23 -m ubuntu"
     echo "  ./$0 -b rock-3a -m debian"
     echo "  ./$0 -b rock-3a -m ubuntu"
+    echo "  ./$0 -b radxa-zero -m debian"
+    echo "  ./$0 -b radxa-zero -m ubuntu"
 }
 
 while getopts "b:m:h" flag; do
@@ -37,6 +39,9 @@ case $BOARD in
     rock-3a)
         CPU="rk3568"
         ;;
+    radxa-zero)
+        CPU="s905y2"
+        ;;
     *)
         echo "Unsupported board $BOARD!"
         exit 2
@@ -51,6 +56,10 @@ case $CPU in
     rk3568)
         ARCH="arm64"
         FORMAT="gpt"
+        ;;
+    s905y2)
+        ARCH="arm64"
+        FORMAT="mbr"
         ;;
     *)
         echo "Unsupported cpu $CPU!"
