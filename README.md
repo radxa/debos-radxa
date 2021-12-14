@@ -20,7 +20,7 @@ Note: GitHub Actions uses some different options for `docker run` due to host ma
 
 ## How to debug errors
 
-Launch `dev-shell` to get a shell inside debos docker. You can then run `build.sh` and monitor the status. debos mounts root partition at `/scratch/mnt`, and boot partition is mounted at `/scratch/mnt/boot`. You can also `chroot /scratch/mnt` to examine the file system.
+Launch `dev-shell` to get a shell inside debos docker. You can then run `build.sh` and monitor the status. debos mounts root partition at `/scratch/mnt`, and boot partition is mounted at `/scratch/mnt/boot`. You can also `chroot /scratch/mnt` to examine the file system. Additionally, you can add `--debug-shell` option in `scripts/debos-target-board.sh` after `debos` command to have program launching a shell right after a failure.
 
 ## Add support for new boards
 

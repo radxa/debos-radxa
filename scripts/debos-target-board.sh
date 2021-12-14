@@ -96,7 +96,7 @@ generate_target_yaml() {
 
 debos_system_image() {
     echo "====debos $BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT start===="
-    cd $OUTPUT_DIR && debos --print-recipe --show-boot --debug-shell -v $TARGET_YAML
+    cd $OUTPUT_DIR && debos --print-recipe --show-boot -v $TARGET_YAML
     echo "====debos $BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT end===="
 }
 
