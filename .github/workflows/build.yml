@@ -16,6 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.time.outputs.time }}
+          target_commitish: main
     outputs:
       upload_url: ${{ steps.release.outputs.upload_url }}
       release_id: ${{ steps.release.outputs.id }}
@@ -40,6 +41,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ needs.prepare_release.outputs.tag_name }}
+          target_commitish: main
           files: ./output/*.img.*
       - name: Rollback release
         if: failure()
