@@ -1,9 +1,34 @@
-name: Build and publish
+name: Build and release
 on:
   workflow_dispatch:
 jobs:
+  prepare_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get time
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          format: 'YYYYMMDD-HHmm'
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          path: ./artifacts
+      - name: Release
+        id: release
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ steps.time.outputs.time }}
+    outputs:
+      upload_url: ${{ steps.release.outputs.upload_url }}
+      release_id: ${{ steps.release.outputs.id }}
+      tag_name: ${{ steps.time.outputs.time }}
   build:
     runs-on: ubuntu-latest
+    needs: prepare_release
     strategy:
       matrix:
         BOARD: [radxa-e23, rock-3a, radxa-zero]
@@ -17,26 +42,15 @@ jobs:
           --workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./scripts/build-supported-configuration.sh godebos/debos \
           -b ${{ matrix.BOARD }} -m ${{ matrix.MODEL }}
       - name: Upload image
-        uses: actions/upload-artifact@v2
+        uses: softprops/action-gh-release@v1
         with:
-          name: ${{ matrix.BOARD }}-${{ matrix.MODEL }}
-          path: ./output/*.img.*
-  publish:
-    runs-on: ubuntu-latest
-    needs: [ build ]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set variables
-        run: echo "VERSION=$(date +%Y%m%d-%H%M)" >> $GITHUB_ENV
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          path: ./artifacts
-      - name: Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: './artifacts/*/*'
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ env.VERSION }}
-          commit: main
+          tag_name: ${{ steps.time.outputs.time }}
+          files: ./output/*.img.*
+      - name: Rollback release
+        if: failure()
+        uses: author/action-rollback@stable
+        with:
+          release_id: ${{ needs.prepare_release.outputs.release_id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
