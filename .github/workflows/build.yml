@@ -5,18 +5,12 @@ jobs:
   prepare_release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Get time
         id: time
         uses: nanzm/get-time-action@v1.1
         with:
           format: 'YYYYMMDD-HHmm'
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          path: ./artifacts
-      - name: Release
+      - name: Create empty release
         id: release
         uses: softprops/action-gh-release@v1
         with:
@@ -45,7 +39,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ steps.time.outputs.time }}
+          tag_name: ${{ needs.prepare_release.outputs.tag_name }}
           files: ./output/*.img.*
       - name: Rollback release
         if: failure()
