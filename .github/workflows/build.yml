@@ -37,11 +37,12 @@ jobs:
           --workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./scripts/build-supported-configuration.sh godebos/debos \
           -b ${{ matrix.BOARD }} -m ${{ matrix.MODEL }}
       - name: Upload image
-        uses: softprops/action-gh-release@v1
+        uses: AButler/upload-release-assets@v2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ needs.prepare_release.outputs.tag_name }}
-          target_commitish: main
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ needs.prepare_release.outputs.tag_name }}
           files: ./output/*.img.*
       - name: Rollback release
         if: failure()
