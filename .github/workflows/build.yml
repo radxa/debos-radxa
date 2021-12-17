@@ -17,6 +17,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.time.outputs.time }}
           target_commitish: main
+          draft: false
+          generate_release_notes: true
     outputs:
       upload_url: ${{ steps.release.outputs.upload_url }}
       release_id: ${{ steps.release.outputs.id }}
