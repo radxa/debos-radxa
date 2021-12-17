@@ -78,7 +78,7 @@ case $MODEL in
         ;;
     *)
         echo "Unsupported model $MODEL!"
-        exit 2
+        exit 4
         ;;
 esac
 
