@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CURDIR="$PWD"
-
 case $(uname -s) in
   Linux)
     echo "Enter Docker container..."
@@ -11,10 +9,10 @@ case $(uname -s) in
       --device /dev/kvm \
       --user $(id -u) \
       --security-opt label=disable \
-      --workdir "${CURDIR}" \
-      --mount "type=bind,source=${CURDIR},destination=${CURDIR}" \\
-      --entrypoint /bin/bash
-      godebos/debos \
+      --workdir $PWD \
+      --mount "type=bind,source=$PWD,destination=$PWD" \
+      --entrypoint /bin/bash \
+      godebos/debos
     ;;
   *)
     echo "Not supported: $(uname -s)"
