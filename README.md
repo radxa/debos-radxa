@@ -1,57 +1,39 @@
-# Debos
+# debos-radxa
 
 ## Introduction
 
-This guide describes how to use Debos tool to generate one system image as well
-as the maintenance of the repository.
+This guide describes how to use debos-radxa, based on [debos](https://github.com/go-debos/debos), to generate Radxa system image.
 
-## Maintenance
+## Usage
 
-### Deploy with github
-
-Github CI is needed.
-
-### How to debug?
-
-#### Build ROCK 3A system image, for example
-
-Build docker and enter docker container.
-
-  ./dev-shell # build docker and enter docker container
-
-Build system image in Docker container.
-
-  ./build.sh # will show usage
-  ./build.sh -c rk3568 -b rock-3a -m ubuntu -d focal -v server -a arm64 -f gpt
-
-The generated system images will be copied to debos-radxa/output direcotry.
-
-Once fail to build system image, need debos to go into debug shell environment.
-
-Adding the following options can help.
+In this example we will build ROCK 3A's system image:
 
 ```
-debos --print-recipe --show-boot --debug-shell -v target.yaml
+docker run --rm --interactive --tty --device /dev/kvm --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build.sh godebos/debos \
+-c rk3568 -b rock-3a -m ubuntu -d focal -v server -a arm64 -f gpt
 ```
 
-Partition root is mounted in /scratch/mnt. Partition boot is mounted in
-/scratch/mnt/boot. Once in faker machine shell environment, we can use chroot
-to debug.
+The generated system images will be copied to `./output` direcotry. You can specify different configuration in the 3rd line.
 
-```
-chroot /scratch/mnt
-```
+Note: GitHub Actions uses some different options for `docker run` due to their runners do not support nested virtualization (i.e. no `/dev/kvm`). In that's your case you need to specify `--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g` instead of `--device /dev/kvm`. It also uses a wrapper script to only build the supported configurations.
 
-### How to maintain this project?
+## How to debug errors
 
-File .../boards/*/packages.list.d/*.list specifies target board kernel packages.
+Launch `dev-shell` to get a shell inside debos docker. You can then run `build.sh` to monitor the build status. debos mounts root partition at `/scratch/mnt`, and boot partition is mounted at `/scratch/mnt/boot`. You can also `chroot /scratch/mnt` to examine the file system.
 
-All possible being used packages are located at .../rootfs/packages.
+Currently `dev-shell` uses a custom docker image to build, so your result might be different from GitHub build. If you want to reproduce GitHub build please use the command from Usage section.
 
-### System features
+## Add support for new boards
+
+`./boards/*/packages.list.d/*.list` are board-specific debos recipes.
+
+`./rootfs/packages` contains additional packages.
+
+## Default settings
 
 * Default non-root user: rock (password: rock)
-* Automatically load Bluetooth firmware after system startup.
-* Resize root filesystem to fit available disk space for the first boot.
-* Support SSH by default.
-* Hostname: board_name.
+* Automatically load Bluetooth firmware after startup
+* The first boot will resize root filesystem to use all available disk space
+* SSH installed by default
+* Hostname: board_name
