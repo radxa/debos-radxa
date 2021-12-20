@@ -3,10 +3,14 @@
 case $(uname -s) in
   Linux)
     echo "Enter Docker container..."
+    if [[ -e /dev/kvm ]];
+      then DEBOS_BACKEND="--device /dev/kvm";
+      else DEBOS_BACKEND="--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g";
+    fi
     exec docker run \
       --rm \
       --interactive --tty \
-      --device /dev/kvm \
+      $DEBOS_BACKEND \
       --user $(id -u) \
       --security-opt label=disable \
       --workdir $PWD \

@@ -16,7 +16,7 @@ docker run --rm --interactive --tty --device /dev/kvm --user $(id -u) --security
 
 The generated system images will be copied to `./output` direcotry. You can specify different configuration in the 3rd line.
 
-Note: GitHub Actions uses some different options for `docker run` due to host machine does not support nested virtualization (i.e. no `/dev/kvm`). It is also using a wrapper script to only build the supported configurations.
+Note: GitHub Actions uses some different options for `docker run` due to host machine does not support nested virtualization (i.e. no `/dev/kvm`). In that case you need to specify `--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g` instead of `--device /dev/kvm`. It also uses a wrapper script to only build the supported configurations.
 
 ## How to debug errors
 
