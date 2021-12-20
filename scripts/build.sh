@@ -14,7 +14,8 @@ cleanup() {
 trap cleanup EXIT
 
 usage() {
-    echo "====USAGE: build.sh -c <cpu> -b <board> -m <model> -d <distro>  -v <variant> -a <arch> -f <format>===="
+    echo "====USAGE: build.sh -c <cpu> -b <board> -m <model> -d <distro>  -v <variant> -a <arch> -f <format> [-0]===="
+    echo "Specify -0 to disable debug-shell, useful for automated build."
     echo "Options:"
     echo "  ./build.sh -c rk3566 -b radxa-e23 -m debian -d buster -v xfce4 -a arm64 -f gpt"
     echo "  ./build.sh -c rk3566 -b radxa-e23 -m ubuntu -d focal -v server -a arm64 -f gpt"
@@ -24,7 +25,9 @@ usage() {
     echo "  ./build.sh -c s905y2 -b radxa-zero -m ubuntu -d focal -v server -a arm64 -f mbr"
 }
 
-while getopts "c:b:m:d:a:v:f:h" flag; do
+DEBUG_SHELL=
+
+while getopts "c:b:m:d:a:v:f:h:0" flag; do
     case $flag in
         c)
             CPU="$OPTARG"
@@ -47,6 +50,9 @@ while getopts "c:b:m:d:a:v:f:h" flag; do
         f)
             FORMAT="$OPTARG"
             ;;
+        0)
+            DEBUG_SHELL=-0
+            ;;
 	esac
 done
 
@@ -57,7 +63,7 @@ fi
 
 build_board() {
     echo "====Start to build $SUBBOARD board system image===="
-    $SCRIPTS_DIR/debos-target-board.sh -c $CPU -b $BOARD -m $MODEL -d $DISTRO -v $VARIANT -a $ARCH -f $FORMAT
+    $SCRIPTS_DIR/debos-target-board.sh -c $CPU -b $BOARD -m $MODEL -d $DISTRO -v $VARIANT -a $ARCH -f $FORMAT $DEBUG_SHELL
     $SCRIPTS_DIR/compress-system-image.sh -c $CPU -b $BOARD -m $MODEL -d $DISTRO -v $VARIANT -a $ARCH -f $FORMAT
     echo "====Building $SUBBOARD board system image is done===="
 }
