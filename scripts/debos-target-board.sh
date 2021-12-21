@@ -12,11 +12,14 @@ OUTPUT_DIR=$TOP_DIR/output
 rm -rf $OUTPUT_DIR/*.img
 
 usage() {
-    echo "====USAGE: debos-target-board.sh -c <cpu> - b <board> -m <model> -d <distro>  -v <variant> -a <arch> -f <format>===="
+    echo "====USAGE: debos-target-board.sh -c <cpu> - b <board> -m <model> -d <distro>  -v <variant> -a <arch> -f <format> [-0]===="
+    echo "Specify -0 to disable debug-shell, useful for automated build."
     echo "debos-target-board..sh -c rk3568 -b rock-3a -m debian -d buster -v xfce4 -a arm64 -f gpt"
 }
 
-while getopts "c:b:m:d:a:v:f:h" flag; do
+DEBUG_SHELL=--debug-shell
+
+while getopts "c:b:m:d:a:v:f:h:0" flag; do
     case $flag in
         c)
             CPU="$OPTARG"
@@ -38,6 +41,9 @@ while getopts "c:b:m:d:a:v:f:h" flag; do
             ;;
         f)
             FORMAT="$OPTARG"
+            ;;
+        0)
+            DEBUG_SHELL=
             ;;
 	esac
 done
@@ -96,7 +102,7 @@ generate_target_yaml() {
 
 debos_system_image() {
     echo "====debos $BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT start===="
-    cd $OUTPUT_DIR && debos --print-recipe --show-boot --debug-shell -v $TARGET_YAML
+    cd $OUTPUT_DIR && debos --print-recipe --show-boot -v $DEBUG_SHELL $TARGET_YAML
     echo "====debos $BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT end===="
 }
 
