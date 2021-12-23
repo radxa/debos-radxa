@@ -1,6 +1,9 @@
 name: Build and release
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 jobs:
   prepare_release:
     runs-on: ubuntu-latest
