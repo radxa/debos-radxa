@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    tags:
+      - '*-*'
+    paths:
+      - 'boards/**'
+      - 'overlays/**'
+      - 'rootfs/**'
+      - 'scripts/**'
+
 jobs:
   prepare_release:
     runs-on: ubuntu-latest
