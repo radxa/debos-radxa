@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'boards/**'
+      - 'overlays/**'
+      - 'rootfs/**'
+      - 'scripts/**'
+
 jobs:
   prepare_release:
     runs-on: ubuntu-latest
@@ -21,7 +27,6 @@ jobs:
           tag_name: ${{ steps.time.outputs.time }}
           target_commitish: main
           draft: false
-          generate_release_notes: true
     outputs:
       upload_url: ${{ steps.release.outputs.upload_url }}
       release_id: ${{ steps.release.outputs.id }}
