@@ -1,0 +1,5 @@
+rockchip-overlay*.deb
+linux-headers-4.19.193-*.deb
+linux-image-4.19.193-*.deb
+linux-4.19-rock-3-latest*.deb
+resize-assistant*.deb
