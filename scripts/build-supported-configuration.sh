@@ -16,6 +16,8 @@ usage() {
     echo "  ./$0 -b radxa-e25 -m ubuntu"
     echo "  ./$0 -b rock-3a -m debian"
     echo "  ./$0 -b rock-3a -m ubuntu"
+    echo "  ./$0 -b rock-3b -m debian"
+    echo "  ./$0 -b rock-3b -m ubuntu"
     echo "  ./$0 -b radxa-zero -m debian"
     echo "  ./$0 -b radxa-zero -m ubuntu"
 }
@@ -40,7 +42,7 @@ case $BOARD in
     radxa-cm3-io|radxa-e23)
         CPU="rk3566"
         ;;
-    radxa-e25|rock-3a)
+    radxa-e25|rock-3a|rock-3b)
         CPU="rk3568"
         ;;
     radxa-zero)
