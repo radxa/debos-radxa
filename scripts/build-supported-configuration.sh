@@ -8,6 +8,8 @@ echo "TOP DIR = $TOP_DIR"
 usage() {
     echo "====USAGE: $0 -b <board> -m <model>===="
     echo "Options:"
+    echo "  ./$0 -b radxa-cm3-io -m debian"
+    echo "  ./$0 -b radxa-cm3-io -m ubuntu"
     echo "  ./$0 -b radxa-e23 -m debian"
     echo "  ./$0 -b radxa-e23 -m ubuntu"
     echo "  ./$0 -b radxa-e25 -m debian"
@@ -35,7 +37,7 @@ if [ ! $BOARD ] && [ ! $MODEL ]; then
 fi
 
 case $BOARD in
-    radxa-e23)
+    radxa-cm3-io|radxa-e23)
         CPU="rk3566"
         ;;
     radxa-e25|rock-3a)
