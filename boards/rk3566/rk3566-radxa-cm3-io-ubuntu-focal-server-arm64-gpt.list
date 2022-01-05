@@ -6,7 +6,7 @@
 21_packages_base.yaml
 21_packages_bluetooth.yaml
 21_packages_devel.yaml
-21_packages_libs.yaml
+21_packages_libs_ubuntu.yaml
 21_packages_math.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
