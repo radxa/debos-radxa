@@ -1,0 +1,8 @@
+rockchip-overlay*.deb
+linux-headers-4.4.194-*-rk3399-rockchip*.deb
+linux-image-4.4.194-*-rk3399-rockchip*.deb
+linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb
+rockpi4-dtbo*.deb
+brcm-patchram-plus1*.deb
+broadcom-wifibt-firmware*.deb
+resize-assistant*.deb

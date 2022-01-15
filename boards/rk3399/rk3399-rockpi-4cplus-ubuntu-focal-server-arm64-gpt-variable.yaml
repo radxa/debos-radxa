@@ -1,0 +1,9 @@
+{{- $board := or .board "rockpi-4cplus" -}}
+{{- $architecture := or .architecture "arm64" -}}
+{{- $model :=  or .model "ubuntu" -}}
+{{- $suite := or  .suite "focal" -}}
+{{- $imagesize := or .iamgesize "2000MB" -}}
+{{- $bootpartitionend := or .bootpartitionend "1081343S" -}}
+{{- $rootpartitionstart := or .rootpartitionstart "1081344S" -}}
+{{- $apt_repo := or .apt_repo "radxa" -}}
+
