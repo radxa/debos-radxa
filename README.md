@@ -30,6 +30,16 @@ Currently `dev-shell` uses a custom docker image to build, so your result might 
 
 `./rootfs/packages` contains additional packages.
 
+## List of boards supported
+
+* Radxa CM3
+* Radxa E23
+* Radxa E25
+* Radxa Zero
+* ROCK 3A
+* ROCK 3B
+* ROCK Pi 4C Plus
+
 ## Default settings
 
 * Default non-root user: rock (password: rock)
