@@ -20,6 +20,8 @@ usage() {
     echo "  ./$0 -b rock-3b -m ubuntu"
     echo "  ./$0 -b radxa-zero -m debian"
     echo "  ./$0 -b radxa-zero -m ubuntu"
+    echo "  ./$0 -b radxa-zero2 -m debian"
+    echo "  ./$0 -b radxa-zero2 -m ubuntu"
 }
 
 while getopts "b:m:h" flag; do
@@ -48,6 +50,9 @@ case $BOARD in
     radxa-zero)
         CPU="s905y2"
         ;;
+    radxa-zero2)
+        CPU="a311d"
+        ;;
     *)
         echo "Unsupported board $BOARD!"
         exit 2
@@ -55,15 +60,11 @@ case $BOARD in
 esac
 
 case $CPU in
-    rk3566)
+    rk3566|rk3568)
         ARCH="arm64"
         FORMAT="gpt"
         ;;
-    rk3568)
-        ARCH="arm64"
-        FORMAT="gpt"
-        ;;
-    s905y2)
+    s905y2|a311d)
         ARCH="arm64"
         FORMAT="mbr"
         ;;
