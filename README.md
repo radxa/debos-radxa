@@ -6,12 +6,20 @@ This guide describes how to use debos-radxa, based on [debos](https://github.com
 
 ## Usage
 
-In this example we will build ROCK 3A's system image:
+In this example we will build ROCK 3A's system image with full options:
 
 ```
 docker run --rm --interactive --tty --device /dev/kvm --user $(id -u) --security-opt label=disable \
 --workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build.sh godebos/debos \
 -c rk3568 -b rock-3a -m ubuntu -d focal -v server -a arm64 -f gpt
+```
+
+You can also build supported configuration with the following command:
+
+```
+docker run --rm --interactive --tty --device /dev/kvm --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint scripts/build-supported-configuration.sh \
+godebos/debos -m ubuntu -b radxa-zero2
 ```
 
 The generated system images will be copied to `./output` direcotry. You can specify different configuration in the 3rd line.
@@ -30,12 +38,13 @@ Currently `dev-shell` uses a custom docker image to build, so your result might 
 
 `./rootfs/packages` contains additional packages.
 
-## List of boards supported
+## Supported boards
 
 * Radxa CM3
 * Radxa E23
 * Radxa E25
 * Radxa Zero
+* Radxa Zero 2
 * ROCK 3A
 * ROCK 3B
 * ROCK Pi 4C Plus
