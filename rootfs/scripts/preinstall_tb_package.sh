@@ -9,9 +9,14 @@ if [[ "$(id -u)" -ne "0" ]]; then
 fi
 
 cd /packages
-for pkg in `cat "./preinstall-packages.list"`
+for pkg in $(cat "./preinstall-packages.list")
 do
-    target_pkg=$(find . -name "$pkg")
-    echo "find target package: $target_pkg"
-    dpkg -i ${target_pkg}
+    if [[ $pkg == \#* ]]
+    then
+        echo Skip $pkg
+    else
+        target_pkg=$(find . -name "$pkg")
+        echo "find target package: $target_pkg"
+        dpkg -i ${target_pkg}
+    fi
 done
