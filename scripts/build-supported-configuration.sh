@@ -16,6 +16,8 @@ usage() {
     echo "  ./$0 -b radxa-e25 -m ubuntu"
     echo "  ./$0 -b radxa-zero -m debian"
     echo "  ./$0 -b radxa-zero -m ubuntu"
+    echo "  ./$0 -b radxa-zero2 -m debian"
+    echo "  ./$0 -b radxa-zero2 -m ubuntu"
     echo "  ./$0 -b rockpi-4cplus -m debian"
     echo "  ./$0 -b rockpi-4cplus -m ubuntu"
     echo "  ./$0 -b rock-3a -m debian"
@@ -53,6 +55,9 @@ case $BOARD in
     radxa-zero)
         CPU="s905y2"
         ;;
+    radxa-zero2)
+        CPU="a311d"
+        ;;
     *)
         echo "Unsupported board $BOARD!"
         exit 2
@@ -60,19 +65,11 @@ case $BOARD in
 esac
 
 case $CPU in
-    rk3399)
+    rk3399|rk3566|rk3568)
         ARCH="arm64"
         FORMAT="gpt"
         ;;
-    rk3566)
-        ARCH="arm64"
-        FORMAT="gpt"
-        ;;
-    rk3568)
-        ARCH="arm64"
-        FORMAT="gpt"
-        ;;
-    s905y2)
+    s905y2|a311d)
         ARCH="arm64"
         FORMAT="mbr"
         ;;

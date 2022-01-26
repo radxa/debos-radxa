@@ -1,3 +1,11 @@
+  - action: run
+    chroot: true
+    command: dd if=/usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin of=/usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.1 bs=1 count=444
+
+  - action: run
+    chroot: true
+    command: dd if=/usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin of=/usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.2 bs=512 skip=1
+
 # Raw write u-boot images to filesystem
   - action: raw
     origin: filesystem
@@ -9,3 +17,14 @@
     source: /usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.2
     offset: '{{ sector 1 }}'
 
+# need this to gurantee the bootloader is properly flashed before we can delete temp files
+  - action: run
+    command: sync
+
+  - action: run
+    chroot: true
+    command: rm /usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.1
+
+  - action: run
+    chroot: true
+    command: rm /usr/lib/u-boot-{{$board}}/u-boot.bin.sd.bin.2

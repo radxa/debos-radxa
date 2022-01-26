@@ -50,7 +50,7 @@ if [[ -e "system.img" ]]; then
     mv "system.img" "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img"
     md5sum "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img" > "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img.md5.txt"
     bmaptool create "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img" > "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img.bmap"
-    xz -f "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img"
+    xz -T 0 -f "${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img"
 fi
 
 echo -e  "\e[36m System image ${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${TIME}-${FORMAT}.img is generated. See it in $OUTPUT_DIR \e[0m"
