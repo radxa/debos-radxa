@@ -24,6 +24,8 @@ usage() {
     echo "  ./$0 -b rock-3a -m ubuntu"
     echo "  ./$0 -b rock-3b -m debian"
     echo "  ./$0 -b rock-3b -m ubuntu"
+    echo "  ./$0 -b rock-5b -m debian"
+    echo "  ./$0 -b rock-5b -m ubuntu"
 }
 
 while getopts "b:m:h" flag; do
@@ -52,6 +54,9 @@ case $BOARD in
     radxa-e25|rock-3a|rock-3b)
         CPU="rk3568"
         ;;
+    rock-5b)
+        CPU="rk3588"
+        ;;
     radxa-zero)
         CPU="s905y2"
         ;;
@@ -65,7 +70,7 @@ case $BOARD in
 esac
 
 case $CPU in
-    rk3399|rk3566|rk3568)
+    rk3399|rk3566|rk3568|rk3588)
         ARCH="arm64"
         FORMAT="gpt"
         ;;
@@ -81,7 +86,14 @@ esac
 
 case $MODEL in
     debian)
-        DISTRO="buster"
+        case $CPU in
+            rk3588)
+                DISTRO="bullseye"
+                ;;
+            *)
+                DISTRO="buster"
+                ;;
+        esac
         VARIANT="xfce4"
         ;;
     ubuntu)

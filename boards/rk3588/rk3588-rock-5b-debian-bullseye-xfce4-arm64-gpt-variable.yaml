@@ -1,0 +1,9 @@
+{{- $board := or .board "rock-5b" -}}
+{{- $architecture := or .architecture "arm64" -}}
+{{- $model :=  or .model "debian" -}}
+{{- $suite := or  .suite "bullseye" -}}
+{{- $imagesize := or .imagesize "3000MB" -}}
+{{- $bootpartitionend := or .bootpartitionend "1081343S" -}}
+{{- $rootpartitionstart := or .rootpartitionstart "1081344S" -}}
+{{- $apt_repo := or .apt_repo "radxa" -}}
+

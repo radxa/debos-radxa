@@ -47,6 +47,7 @@ Currently `dev-shell` uses a custom docker image to build, so your result might 
 * Radxa Zero 2
 * ROCK 3A
 * ROCK 3B
+* ROCK 5B
 * ROCK Pi 4C Plus
 
 ## Default settings

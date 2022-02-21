@@ -23,7 +23,7 @@ rm -rf /etc/apt/sources.list
 touch /etc/apt/sources.list
 
 case $SUITE in
-stretch|buster|bulleye)
+stretch|buster|bullseye)
 cat <<-EOF > /etc/apt/sources.list
 deb http://${DEBIAN_MIRROR} ${SUITE} main contrib non-free
 #deb-src http://${DEBIAN_MIRROR} ${SUITE} main contrib non-free

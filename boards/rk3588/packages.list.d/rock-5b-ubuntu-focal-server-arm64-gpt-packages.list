@@ -1,0 +1,5 @@
+rockchip-overlay*.deb
+linux-headers-5.10.66*.deb
+linux-image-5.10.66*.deb
+intel-wifibt-firmware*.deb
+resize-assistant*.deb
