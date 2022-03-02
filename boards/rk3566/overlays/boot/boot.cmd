@@ -21,7 +21,7 @@ fi
 # get PARTUUID of first partition on SD/eMMC the boot script was loaded from
 if test "${devtype}" = "mmc"; then part uuid mmc ${devnum}:1 partuuid; fi
 
-setenv bootargs "initrd=${initrdimg} root=UUID=${rootuuid} rootwait rw rootfstype=${rootfstype} console=tty1 console=ttyFIQ0,1500000 panic=10 consoleblank=0 loglevel=${verbosity} ${extraargs} ${extraboardargs}"
+setenv bootargs "initrd=${initrdimg} root=UUID=${rootuuid} rootwait rw rootfstype=${rootfstype} console=tty1 console=${console} panic=10 consoleblank=0 loglevel=${verbosity} ${extraargs} ${extraboardargs}"
 
 if test "${docker_optimizations}" = "on"; then setenv bootargs "${bootargs} cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1"; fi
 
