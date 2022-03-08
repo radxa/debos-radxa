@@ -18,6 +18,8 @@ usage() {
     echo "  ./$0 -b radxa-zero -m ubuntu"
     echo "  ./$0 -b radxa-zero2 -m debian"
     echo "  ./$0 -b radxa-zero2 -m ubuntu"
+    echo "  ./$0 -b rockpi-4b -m debian"
+    echo "  ./$0 -b rockpi-4b -m ubuntu"
     echo "  ./$0 -b rockpi-4cplus -m debian"
     echo "  ./$0 -b rockpi-4cplus -m ubuntu"
     echo "  ./$0 -b rock-3a -m debian"
@@ -45,7 +47,7 @@ if [ ! $BOARD ] && [ ! $MODEL ]; then
 fi
 
 case $BOARD in
-    rockpi-4cplus)
+    rockpi-4b|rockpi-4cplus)
         CPU="rk3399"
         ;;
     radxa-cm3-io|radxa-e23)

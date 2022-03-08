@@ -17,6 +17,8 @@ usage() {
     echo "====USAGE: build.sh -c <cpu> -b <board> -m <model> -d <distro>  -v <variant> -a <arch> -f <format> [-0]===="
     echo "Specify -0 to disable debug-shell, useful for automated build."
     echo "Options:"
+    echo "  ./build.sh -c rk3399 -b rockpi-4b -m debian -d buster -v xfce4 -a arm64 -f gpt"
+    echo "  ./build.sh -c rk3399 -b rockpi-4b -m ubuntu -d focal -v server -a arm64 -f gpt"
     echo "  ./build.sh -c rk3399 -b rockpi-4cplus -m debian -d buster -v xfce4 -a arm64 -f gpt"
     echo "  ./build.sh -c rk3399 -b rockpi-4cplus -m ubuntu -d focal -v server -a arm64 -f gpt"
     echo "  ./build.sh -c rk3566 -b radxa-cm3-io -m debian -d buster -v xfce4 -a arm64 -f gpt"
