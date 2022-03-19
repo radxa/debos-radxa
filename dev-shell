@@ -1,23 +1,22 @@
 #!/bin/bash
 
-CURDIR="$PWD"
-
 case $(uname -s) in
   Linux)
-    echo "Building Docker environment..."
-    docker build  -t debos-radxa:1 docker/
     echo "Enter Docker container..."
+    if [[ -e /dev/kvm ]];
+      then DEBOS_BACKEND="--device /dev/kvm";
+      else DEBOS_BACKEND="--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g";
+    fi
     exec docker run \
       --rm \
       --interactive --tty \
-      --device /dev/kvm \
+      $DEBOS_BACKEND \
+      --user $(id -u) \
       --security-opt label=disable \
-      --env HOME \
-      --privileged \
-      --hostname terra \
-      --volume "${CURDIR}:${CURDIR}" \
-      --workdir "${CURDIR}" \
-      debos-radxa:1 \
+      --workdir $PWD \
+      --mount "type=bind,source=$PWD,destination=$PWD" \
+      --entrypoint /bin/bash \
+      godebos/debos
     ;;
   *)
     echo "Not supported: $(uname -s)"
