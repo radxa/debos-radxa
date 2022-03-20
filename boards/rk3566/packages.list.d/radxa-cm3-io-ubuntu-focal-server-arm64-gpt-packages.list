@@ -5,3 +5,4 @@ linux-4.19-rock-3-latest*.deb
 resize-assistant*.deb
 brcm-patchram-plus1*.deb
 broadcom-wifibt-firmware*.deb
+rockchip-adbd*.deb
