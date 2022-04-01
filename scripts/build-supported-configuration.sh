@@ -67,6 +67,9 @@ case $BOARD in
     radxa-zero2)
         CPU="a311d"
         ;;
+    rockpi-s)
+        CPU="rk3308"
+        ;;
     *)
         echo "Unsupported board $BOARD!"
         exit 2
@@ -74,7 +77,7 @@ case $BOARD in
 esac
 
 case $CPU in
-    rk3399|rk3566|rk3568|rk3588)
+    rk3308|rk3399|rk3566|rk3568|rk3588)
         ARCH="arm64"
         FORMAT="gpt"
         ;;
