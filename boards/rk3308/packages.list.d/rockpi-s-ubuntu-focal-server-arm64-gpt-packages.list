@@ -1,0 +1,9 @@
+rockchip-overlay*.deb
+linux-headers-4.4.143-*.deb
+linux-image-4.4.143-*.deb
+linux-firmware-image-4.4.143-*.deb
+linux-4.4-rock-pi-s-latest*.deb
+networkmanager-patch*.deb
+rtl8723ds-firmware*.deb
+rockchip-adbd*.deb
+resize-assistant*.deb

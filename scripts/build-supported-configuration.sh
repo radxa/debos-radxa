@@ -22,6 +22,8 @@ usage() {
     echo "  ./$0 -b rockpi-4b -m ubuntu"
     echo "  ./$0 -b rockpi-4cplus -m debian"
     echo "  ./$0 -b rockpi-4cplus -m ubuntu"
+    echo "  ./$0 -b rockpi-s -m debian"
+    echo "  ./$0 -b rockpi-s -m ubuntu"
     echo "  ./$0 -b rock-3a -m debian"
     echo "  ./$0 -b rock-3a -m ubuntu"
     echo "  ./$0 -b rock-3b -m debian"
