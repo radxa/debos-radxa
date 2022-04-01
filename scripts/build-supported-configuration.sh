@@ -101,7 +101,14 @@ case $MODEL in
                 DISTRO="buster"
                 ;;
         esac
-        VARIANT="xfce4"
+        case $BOARD in
+            rockpi-s)
+                VARIANT="server"
+                ;;
+            *)
+                VARIANT="xfce4"
+                ;;
+        esac
         ;;
     ubuntu)
         DISTRO="focal"
