@@ -1,9 +1,11 @@
 rockchip-overlay*.deb
-linux-headers-*4.4.154*.deb
-linux-image-*4.4.154*.deb
-linux-firmware-image-*4.4.154*.deb
-linux-4.4-rock-pi-4-latest*.deb
-rockpi4-dtbo*.deb
+linux-headers-*5.10.103*.deb
+linux-image-*5.10.103*.deb
+#linux-headers-*4.4.154*.deb
+#linux-image-*4.4.154*.deb
+#linux-firmware-image-*4.4.154*.deb
+#linux-4.4-rock-pi-4-latest*.deb
+#rockpi4-dtbo*.deb
 brcm-patchram-plus1*.deb
 broadcom-wifibt-firmware*.deb
 resize-assistant*.deb
