@@ -4,6 +4,19 @@
 
 This guide describes how to use debos-radxa, based on [debos](https://github.com/go-debos/debos), to generate Radxa system image.
 
+## Supported boards and system images
+
+* Radxa CM3 IO    : https://github.com/radxa-build/radxa-cm3-io/releases/latest
+* Radxa E23       : https://github.com/radxa-build/radxa-e23/releases/latest
+* Radxa E25       : https://github.com/radxa-build/radxa-e25/releases/latest
+* Radxa Zero      : https://github.com/radxa-build/radxa-zero/releases/latest
+* Radxa Zero 2    : https://github.com/radxa-build/radxa-zero2/releases/latest
+* ROCK 3A         : https://github.com/radxa-build/rock-3a/releases/latest
+* ROCK 3B         : https://github.com/radxa-build/rock-3b/releases/latest
+* ROCK 5B         : https://github.com/radxa-build/rock-5b/releases/latest
+* ROCK Pi 4B      : https://github.com/radxa-build/rockpi-4b/releases/latest
+* ROCK Pi 4C Plus : https://github.com/radxa-build/rockpi-4cplus/releases/latest
+
 ## Build Host
 
 ### Required Packages for the Build Host
@@ -154,18 +167,6 @@ Currently `dev-shell` uses a custom docker image to build, so your result might 
 `./boards/*/packages.list.d/*.list` are board-specific debos recipes.
 
 `./rootfs/packages` contains additional packages.
-
-## Supported boards
-
-* Radxa CM3
-* Radxa E23
-* Radxa E25
-* Radxa Zero
-* Radxa Zero 2
-* ROCK 3A
-* ROCK 3B
-* ROCK Pi 4B
-* ROCK Pi 4C Plus
 
 ## Default settings
 
