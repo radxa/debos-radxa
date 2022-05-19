@@ -1,5 +1,0 @@
-verbosity=7
-overlay_prefix=rockchip
-rootfstype=ext4
-fdtfile=rockchip/rk3568-rock-3-a.dtb
-overlays=rk3568-can1-m0 rk3568-pwm8-m0-fan

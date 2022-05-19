@@ -1,6 +1,0 @@
-verbosity=7
-console=ttyAML0,115200
-overlay_prefix=meson
-rootfstype=ext4
-fdtfile=amlogic/meson-g12a-radxa-zero.dtb
-overlays=meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1
