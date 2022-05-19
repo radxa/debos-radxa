@@ -1,0 +1,4 @@
+verbosity=7
+fdtfile=rockchip/rk3308-rock-pi-s.dtb
+console=ttyS0,1500000n8
+overlays=rk3308-uart0

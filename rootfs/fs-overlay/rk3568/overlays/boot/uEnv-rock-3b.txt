@@ -1,0 +1,6 @@
+verbosity=7
+console=ttyFIQ0
+overlay_prefix=rockchip
+rootfstype=ext4
+fdtfile=rockchip/rk3568-rock-3-b.dtb
+overlays=rk3568-fiq-debugger-uart2m0 rk3568-pwm8-m0-fan
