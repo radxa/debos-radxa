@@ -55,27 +55,23 @@ fi
 
 prepare_build() {
     echo "====Start to preppare workspace directory, build===="
-    TARGET_BOARD_DIR=$TOP_DIR/boards/$CPU
+    cp -av $TOP_DIR/rootfs/fs-overlay/common/overlays/* $BUILD_DIR/overlays
+    cp -av $TOP_DIR/rootfs/fs-overlay/${CPU}/overlays/* $BUILD_DIR/overlays
 
-    cp -av $TOP_DIR/overlays/common-overlays/* $BUILD_DIR/overlays
-    cp -av $TARGET_BOARD_DIR/overlays/* $BUILD_DIR/overlays
+    cp -av ${BUILD_DIR}/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list ${BUILD_DIR}/overlays/packages/preinstall-packages.list
 
-    cp -av $TARGET_BOARD_DIR/packages.list.d/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list $BUILD_DIR/overlays/packages/preinstall-packages.list
-    cp -av $TARGET_BOARD_DIR/*.list $BUILD_DIR
-    cp -av $TARGET_BOARD_DIR/*.yaml $BUILD_DIR
-
-    cp -av $ROOTFS_DIR/recipes-*/*.yaml $BUILD_DIR/recipes/
+    cp -av $ROOTFS_DIR/recipes/*.yaml $BUILD_DIR/recipes/
     cp -av $ROOTFS_DIR/scripts/*.sh $BUILD_DIR/scripts/
 
-    echo "/${BOARD}-${MODEL}-${DISTRO}-${ARCH}-${VARIANT}-${FORMAT}-packages.list"
-    cat $TARGET_BOARD_DIR/packages.list.d/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list
+    echo "${BOARD}-${MODEL}-${DISTRO}-${ARCH}-${VARIANT}-${FORMAT}-packages.list"
+    cat $BUILD_DIR/overlays/packages/preinstall-packages.list
 
-    for pkg in `cat $TARGET_BOARD_DIR/packages.list.d/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list`
+    for pkg in `cat $BUILD_DIR/overlays/packages/preinstall-packages.list`
     do
         cp -av `find $ROOTFS_DIR/packages/${ARCH} -name "$pkg"` $BUILD_DIR/overlays/packages/
     done
 
-    cp -av `find $ROOTFS_DIR/packages/${ARCH} -name "*$BOARD*"` $BUILD_DIR/overlays/packages/
+    cp -av `find $ROOTFS_DIR/packages/$ARCH -name "*$BOARD*"` $BUILD_DIR/overlays/packages/
     echo "====Preparing workspace directory, build is done===="
 }
 
@@ -86,13 +82,13 @@ generate_target_yaml() {
     TEMP_YAML_DIR=$BUILD_DIR/temp_yaml
     [ ! -d $TEMP_YAML_DIR ] && mkdir $TEMP_YAML_DIR
 
-    for yaml in `cat $BUILD_DIR/$CPU-$BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT.list`
+    for yaml in `cat $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.list`
     do
         cp -f $BUILD_DIR/recipes/$yaml $TEMP_YAML_DIR 2>/dev/null
     done
 
     cd $TEMP_YAML_DIR
-    cat $BUILD_DIR/$CPU-$BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT-variable.yaml >> $TARGET_YAML
+    cat $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-variable.yaml >> $TARGET_YAML
     for yaml in `ls | sort -n`
     do
         cat $yaml >> $TARGET_YAML

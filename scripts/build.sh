@@ -4,9 +4,9 @@ CMD=`realpath $0`
 SCRIPTS_DIR=`dirname $CMD`
 TOP_DIR=$(realpath $SCRIPTS_DIR/..)
 echo "TOP DIR = $TOP_DIR"
-BOARDS_DIR=$TOP_DIR/boards
+CONFIG_BOARDS_DIR=$TOP_DIR/configs/boards
 BUILD_DIR=$TOP_DIR/build
-[ ! -d "$BUILD_DIR" ] && mkdir -p $BUILD_DIR/overlays $BUILD_DIR/recipes $BUILD_DIR/scripts
+[ ! -d "$BUILD_DIR" ] && mkdir -p $BUILD_DIR/overlays $BUILD_DIR/overlays/packages $BUILD_DIR/recipes $BUILD_DIR/scripts
 
 cleanup() {
     rm -rf $BUILD_DIR
@@ -90,5 +90,6 @@ clean_system_images() {
     echo "====Cleaning system images is done===="
 }
 
+${CONFIG_BOARDS_DIR}/$CPU/config-$BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT.sh
 build_board
 clean_system_images
