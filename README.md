@@ -47,7 +47,7 @@ Launch `dev-shell` to get a shell inside debos docker.
 
 <pre>
 radxa@x86-64:~$ cd debos-radxa
-radxa@x86-64:~/debos-radxa$ ./dev-shell
+radxa@x86-64:~/debos-radxa$ ./docker/dev-shell
 Building Docker environment...
 Sending build context to Docker daemon   2.56kB
 Step 1/11 : FROM debian:testing
