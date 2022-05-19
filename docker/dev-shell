@@ -1,11 +1,16 @@
 #!/bin/bash
 
+CMD=`realpath $0`
+DOCKER_DIR=`dirname $CMD`
+TOP_DIR=$(realpath $DOCKER_DIR/..)
+
+cd $TOP_DIR
 CURDIR="$PWD"
 
 case $(uname -s) in
   Linux)
     echo "Building Docker environment..."
-    docker build  -t debos-radxa:1 docker/
+    docker build  -t debos-radxa:1 ./docker/
     echo "Enter Docker container..."
     exec docker run \
       --rm \
