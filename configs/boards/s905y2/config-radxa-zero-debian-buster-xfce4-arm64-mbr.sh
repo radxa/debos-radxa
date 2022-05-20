@@ -25,7 +25,6 @@ linux-image-5.10.69*amlogic*.deb
 linux-5.10-radxa-zero-latest*.deb
 resize-assistant*.deb
 amlogic-adbd*.deb
-libmraa-buster_*_arm64.deb
 EOF
 
 # Add yaml variable
