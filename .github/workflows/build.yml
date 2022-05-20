@@ -5,8 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'boards/**'
-      - 'overlays/**'
+      - 'configs/**'
       - 'rootfs/**'
       - 'scripts/**'
 
