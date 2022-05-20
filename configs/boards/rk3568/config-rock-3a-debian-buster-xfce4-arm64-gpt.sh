@@ -28,7 +28,6 @@ brcm-patchram-plus1*.deb
 broadcom-wifibt-firmware*.deb
 rtl8723be-firmware*.deb
 intel-wifibt-firmware*.deb
-libmraa-focal_*_arm64.deb
 EOF
 
 # Add yaml variable
