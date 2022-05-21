@@ -25,7 +25,7 @@ You must install essential host packages on your build host.
 The following command installs the host packages on an Ubuntu distribution
 
 <pre>
-$ sudo apt-get install -y git
+$ sudo apt-get install -y git user-mode-linux libslirp-helper
 </pre>
 
 ### Install Docker Engine on Ubuntu
