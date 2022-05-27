@@ -64,6 +64,12 @@ Enter Docker container...
 root@terra:~/debos-radxa#
 </pre>
 
+Change the size and permissions of /dev/shm
+
+<pre>
+root@terra:~/debos-radxa# mount -o remount,rw,nosuid,dev,exec,relatime,size=4G /dev/shm
+</pre>
+
 Launch `./build.sh` to get build options.
 
 <pre>
