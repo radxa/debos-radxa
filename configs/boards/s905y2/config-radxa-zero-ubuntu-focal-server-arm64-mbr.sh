@@ -26,6 +26,8 @@ linux-5.10-radxa-zero-latest*.deb
 resize-assistant*.deb
 amlogic-adbd*.deb
 libmraa-focal_*_arm64.deb
+dthelper*.deb
+libreelec-alsa-utils*.deb
 EOF
 
 # Add yaml variable
