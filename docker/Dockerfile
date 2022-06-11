@@ -1,18 +1,16 @@
-FROM debian:testing
+FROM debian:bullseye
 
-RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ testing main non-free contrib" > /etc/apt/sources.list
-RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ testing-updates main non-free contrib" >> /etc/apt/sources.list
-RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security/ testing-security main non-free contrib" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main non-free contrib" > /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main non-free contrib" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security/ bullseye-security main non-free contrib" >> /etc/apt/sources.list
 
-RUN apt-get update -y 
-RUN apt-get install -y libterm-readkey-perl user-mode-linux libslirp-helper -y
-RUN apt-get -y install apt-utils xz-utils dosfstools --fix-missing
-
-RUN apt-get install debos -y --fix-missing
+RUN apt-get update -y && apt-get -y --allow-unauthenticated install debos \
+    xz-utils dosfstools libterm-readkey-perl user-mode-linux libslirp-helper \
+    && apt install -y -f
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends vim ssh ssh-import-id git tree \
-    debian-keyring gpgv network-manager host curl bmap-tools --fix-missing
+    debian-keyring gpgv network-manager host curl bmap-tools
 
 # add credentials on build
 ARG SSH_PRIVATE_KEY
