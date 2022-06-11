@@ -28,6 +28,8 @@ usage() {
     echo "  ./$0 -b rock-3a -m ubuntu"
     echo "  ./$0 -b rock-3b -m debian"
     echo "  ./$0 -b rock-3b -m ubuntu"
+    echo "  ./$0 -b rock-5a -m debian"
+    echo "  ./$0 -b rock-5a -m ubuntu"
     echo "  ./$0 -b rock-5b -m debian"
     echo "  ./$0 -b rock-5b -m ubuntu"
 }
@@ -58,6 +60,9 @@ case $BOARD in
     radxa-e25|rock-3a|rock-3b)
         CPU="rk3568"
         ;;
+    rock-5a)
+        CPU="rk3588s"
+        ;;
     rock-5b)
         CPU="rk3588"
         ;;
@@ -77,7 +82,7 @@ case $BOARD in
 esac
 
 case $CPU in
-    rk3308|rk3399|rk3566|rk3568|rk3588)
+    rk3308|rk3399|rk3566|rk3568|rk3588s|rk3588)
         ARCH="arm64"
         FORMAT="gpt"
         ;;
@@ -94,7 +99,7 @@ esac
 case $MODEL in
     debian)
         case $CPU in
-            rk3588)
+            rk3588s|rk3588)
                 DISTRO="bullseye"
                 ;;
             *)
