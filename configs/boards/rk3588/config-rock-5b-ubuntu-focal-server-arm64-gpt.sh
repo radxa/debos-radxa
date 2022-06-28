@@ -23,6 +23,7 @@ rockchip-overlay*.deb
 linux-headers-5.10.66*.deb
 linux-image-5.10.66*.deb
 intel-wifibt-firmware*.deb
+realtek-wifibt-firmware*.deb
 resize-assistant*.deb
 librga2_2.2.0-1_arm64.deb
 librga2-dbgsym_2.2.0-1_arm64.deb
