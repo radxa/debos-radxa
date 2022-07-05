@@ -28,6 +28,13 @@ resize-assistant*.deb
 librga2_2.2.0-1_arm64.deb
 librga2-dbgsym_2.2.0-1_arm64.deb
 librga-dev_2.2.0-1_arm64.deb
+librockchip-mpp-dev_1.5.0-1_arm64.deb
+librockchip-mpp1-dbgsym_1.5.0-1_arm64.deb
+librockchip-mpp1_1.5.0-1_arm64.deb
+librockchip-vpu0-dbgsym_1.5.0-1_arm64.deb
+librockchip-vpu0_1.5.0-1_arm64.deb
+rockchip-mpp-demos-dbgsym_1.5.0-1_arm64.deb
+rockchip-mpp-demos_1.5.0-1_arm64.deb
 EOF
 
 # Add yaml variable
