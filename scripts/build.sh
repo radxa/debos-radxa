@@ -35,6 +35,8 @@ usage() {
     echo "  ./build.sh -c rk3568 -b rock-3b -m ubuntu -d focal -v server -a arm64 -f gpt"
     echo "  ./build.sh -c rk3588 -b rock-5b -m debian -d bullseye -v xfce4 -a arm64 -f gpt"
     echo "  ./build.sh -c rk3588 -b rock-5b -m ubuntu -d focal -v server -a arm64 -f gpt"
+    echo "  ./build.sh -c rk3588s -b radxa-nx5 -m debian -d bullseye -v xfce4 -a arm64 -f gpt"
+    echo "  ./build.sh -c rk3588s -b radxa-nx5 -m ubuntu -d focal -v server -a arm64 -f gpt"
     echo "  ./build.sh -c rk3588s -b rock-5a -m debian -d bullseye -v xfce4 -a arm64 -f gpt"
     echo "  ./build.sh -c rk3588s -b rock-5a -m ubuntu -d focal -v server -a arm64 -f gpt"
     echo "  ./build.sh -c s905y2 -b radxa-zero -m debian -d buster -v xfce4 -a arm64 -f mbr"
