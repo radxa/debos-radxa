@@ -3,4 +3,4 @@ console=ttyFIQ0
 overlay_prefix=rockchip
 rootfstype=ext4
 fdtfile=rockchip/rk3568-radxa-e25.dtb
-overlays=rk3568-fiq-debugger-uart2m0
+overlays=rk3568-fiq-debugger-uart2m0rk3568-disable-npu
