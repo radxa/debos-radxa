@@ -10,12 +10,13 @@ if [[ "$(id -u)" -ne "0" ]]; then
 fi
 
 # Overwrite /boot/uEnv.txt
-cp /boot/uEnv-${BOARD}.txt /boot/uEnv.txt
-rm /boot/uEnv-*.txt
+if [[ -f "/boot/uEnv-${BOARD}.txt" ]]; then
+    cp /boot/uEnv-${BOARD}.txt /boot/uEnv.txt
+    rm -f /boot/uEnv-*.txt
 
-# Overwrite rootuuid
-#ROOTUUID=$(cat /etc/kernel/cmdline | cut -d "=" -f 3)
-echo "rootuuid=`cat /etc/kernel/cmdline | cut -d "=" -f 3`" >> /boot/uEnv.txt
+    # Overwrite rootuuid
+    echo "rootuuid=`cat /etc/kernel/cmdline | cut -d "=" -f 3`" >> /boot/uEnv.txt
 
-echo "I: show /boot/uEnv.txt"
-cat /boot/uEnv.txt
+    echo "I: show /boot/uEnv.txt"
+    cat /boot/uEnv.txt
+fi
