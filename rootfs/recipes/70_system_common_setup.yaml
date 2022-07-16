@@ -1,0 +1,36 @@
+  - action: overlay
+    source: overlays/
+    destination: /
+
+  - action: run
+    chroot: true
+    script: scripts/setup_user.sh
+
+  - action: run
+    chroot: true
+    script: scripts/add_apt_sources.sh {{$model}} {{$suite}} {{$apt_repo}}
+
+  - action: run
+    chroot: true
+    script: scripts/fix_resolv_conf.sh
+
+  - action: run
+    chroot: true
+    script: scripts/setup_hostname_hosts.sh {{$board}}
+
+  - action: run
+    chroot: true
+    script: scripts/fix_uenv.sh {{$board}}
+
+  - action: run
+    chroot: true
+    script: scripts/fix_boot_scr.sh {{$board}}
+
+  - action: run
+    chroot: true
+    script: scripts/preinstall_tb_package.sh
+
+  - action: run
+    chroot: true
+    script: scripts/preinstall_u_boot.sh {{$board}}
+
