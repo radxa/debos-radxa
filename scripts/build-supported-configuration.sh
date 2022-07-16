@@ -103,7 +103,7 @@ esac
 case $MODEL in
     debian)
         case $CPU in
-            rk3566|rk3588s|rk3588)
+            rk3566|rk3588|rk3588s|rk3588)
                 DISTRO="bullseye"
                 ;;
             *)
