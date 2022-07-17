@@ -20,8 +20,8 @@ export IMAGESIZE=3000MB
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
 rockchip-overlay*.deb
-linux-headers-*5.10.103*.deb
-linux-image-*5.10.103*.deb
+linux-headers-*5.10.131*.deb
+linux-image-*5.10.131*.deb
 #linux-headers-*4.4.154*.deb
 #linux-image-*4.4.154*.deb
 #linux-firmware-image-*4.4.154*.deb
