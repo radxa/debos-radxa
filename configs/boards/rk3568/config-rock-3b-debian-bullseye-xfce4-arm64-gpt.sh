@@ -15,7 +15,7 @@ export DISTRO=bullseye
 export VARIANT=xfce4
 export ARCH=arm64
 export FORMAT=gpt
-export IMAGESIZE=3000MB
+export IMAGESIZE=4000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
