@@ -25,6 +25,7 @@ linux-image-4.19.193-*.deb
 linux-4.19-rock-3-latest*.deb
 resize-assistant*.deb
 qualcomm-wifibt-firmware*.deb
+intel-wifibt-firmware*.deb
 EOF
 
 # Add yaml variable
