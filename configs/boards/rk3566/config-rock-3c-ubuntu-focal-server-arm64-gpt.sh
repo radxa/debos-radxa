@@ -19,6 +19,7 @@ export IMAGESIZE=2000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
+radxa-add-overlay*.deb
 rockchip-overlay*.deb
 linux-headers-4.19.193-*.deb
 linux-image-4.19.193-*.deb

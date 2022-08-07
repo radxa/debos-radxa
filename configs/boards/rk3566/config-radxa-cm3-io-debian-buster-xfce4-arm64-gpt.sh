@@ -19,6 +19,7 @@ export IMAGESIZE=3000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
+radxa-add-overlay*.deb
 rockchip-overlay*.deb
 linux-headers-4.19.193-*.deb
 linux-image-4.19.193-*.deb
@@ -60,14 +61,7 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_xfce.yaml
 21_packages_web.yaml
 22_packages_end.yaml
-30_overlays.yaml
-60_setup_user.yaml
-61_add_apt_sources.yaml
-62_fix_resolv_conf.yaml
-63_setup_hostname_hosts.yaml
-65_fix_uenv.yaml
-80_preinstall_tb_packages.yaml
-84_preinstall_u-boot.yaml
+70_system_common_setup.yaml
 85_u_boot_rk35xx.yaml
 90_clean_rootfs.yaml
 EOF
