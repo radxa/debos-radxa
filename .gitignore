@@ -6,3 +6,4 @@ repositories
 output
 tmp
 boards/*/*/testing-system
+.vscode-ctags
