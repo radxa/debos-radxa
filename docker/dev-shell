@@ -15,7 +15,7 @@ case $(uname -s) in
     exec docker run \
       --rm \
       --interactive --tty \
-      --device /dev/kvm \
+      --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g \
       --security-opt label=disable \
       --env HOME \
       --privileged \
