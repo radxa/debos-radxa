@@ -28,6 +28,10 @@
 
   - action: run
     chroot: true
+    script: scripts/fix_config.sh {{$board}}
+
+  - action: run
+    chroot: true
     script: scripts/preinstall_tb_package.sh
 
   - action: run
