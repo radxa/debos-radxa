@@ -21,13 +21,12 @@ export IMAGESIZE=3000MB
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
 radxa-add-overlay*.deb
 rockchip-overlay*.deb
-linux-headers-*5.10.131*.deb
-linux-image-*5.10.131*.deb
-#linux-headers-*4.4.154*.deb
-#linux-image-*4.4.154*.deb
-#linux-firmware-image-*4.4.154*.deb
-#linux-4.4-rock-pi-4-latest*.deb
-#rockpi4-dtbo*.deb
+#linux-headers-*5.10.131*.deb
+#linux-image-*5.10.131*.deb
+linux-headers-4.4.194-*-rk3399-rockchip*.deb
+linux-image-4.4.194-*-rk3399-rockchip*.deb
+linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb
+rockpi4-dtbo*.deb
 brcm-patchram-plus1*.deb
 broadcom-wifibt-firmware*.deb
 resize-assistant*.deb
