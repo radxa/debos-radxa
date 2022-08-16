@@ -1,0 +1,29 @@
+# Execute "update_extlinux.sh" after changing file /boot/config.txt.
+
+#
+# kernel command line: started with "cmdline:"
+#
+
+# For console
+cmdline: earlyprintk console=ttyFIQ0,1500000n8 console=tty1 consoleblank=0 loglevel=7
+
+# For rootfs
+cmdline: panic rootwait rw init=/sbin/init rootfstype=ext4
+
+cmdline: irqchip.gicv3_pseudo_nmi=0
+cmdline: switolb=1
+cmdline: coherent_pool=1m
+
+# Docker optimizations
+cmdline: cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1
+
+
+#
+# dt overlay line: started with "dtoverlay=". One dt overlay one line.
+#
+
+dtoverlay=rk3568-fiq-debugger-uart2m0
+dtoverlay=rk3568-can1-m0
+dtoverlay=rk3568-pwm8-m0-fan
+dtoverlay=rk3568-disable-npu
+

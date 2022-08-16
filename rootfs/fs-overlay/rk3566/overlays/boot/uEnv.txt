@@ -1,4 +1,0 @@
-verbosity=7
-overlay_prefix=rockchip
-rootfstype=ext4
-fdtfile=rockchip/rk3566-radxa-cm3-io.dtb
