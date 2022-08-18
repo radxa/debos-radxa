@@ -23,7 +23,7 @@ rm -rf /etc/apt/sources.list
 touch /etc/apt/sources.list
 
 case $SUITE in
-stretch|buster|bullseye)
+stretch|buster)
 cat <<-EOF > /etc/apt/sources.list
 deb http://${DEBIAN_MIRROR} ${SUITE} main contrib non-free
 #deb-src http://${DEBIAN_MIRROR} ${SUITE} main contrib non-free
@@ -36,6 +36,22 @@ deb http://${DEBIAN_MIRROR} ${SUITE}-backports main contrib non-free
 
 deb http://security.debian.org/ ${SUITE}/updates main contrib non-free
 #deb-src http://security.debian.org/ ${SUITE}/updates main contrib non-free
+EOF
+;;
+
+bullseye)
+cat <<-EOF > /etc/apt/sources.list
+deb http://${DEBIAN_MIRROR} ${SUITE} main contrib non-free
+#deb-src http://${DEBIAN_MIRROR} ${SUITE} main contrib non-free
+
+deb http://${DEBIAN_MIRROR} ${SUITE}-updates main contrib non-free
+#deb-src http://${DEBIAN_MIRROR} ${SUITE}-updates main contrib non-free
+
+deb http://${DEBIAN_MIRROR} ${SUITE}-backports main contrib non-free
+#deb-src http://${DEBIAN_MIRROR} ${SUITE}-backports main contrib non-free
+
+deb http://security.debian.org/debian-security ${SUITE}-security main contrib non-free
+#deb-src http://security.debian.org/debian-security ${SUITE}-security main contrib non-free
 EOF
 ;;
 
