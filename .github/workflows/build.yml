@@ -35,7 +35,7 @@ jobs:
     needs: prepare_release
     strategy:
       matrix:
-        BOARD: [radxa-cm3-io, radxa-e23, radxa-e25, radxa-nx5, radxa-zero, radxa-zero2, rockpi-4b, rockpi-4cplus, rockpi-s, rock-3a, rock-3b, rock-3c, rock-5a, rock-5b]
+        BOARD: [radxa-cm3-io, radxa-e23, radxa-e25, radxa-nx5, radxa-zero, radxa-zero2, rockpi-4b, rockpi-4cplus, rock-3a, rock-3b, rock-3c, rock-5a, rock-5b]
         MODEL: [debian, ubuntu]
     steps:
       - name: Checkout
