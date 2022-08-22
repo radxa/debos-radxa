@@ -5,37 +5,24 @@ SCRIPTS_DIR=`dirname $CMD`
 TOP_DIR=$(realpath $SCRIPTS_DIR/..)
 echo "TOP DIR = $TOP_DIR"
 
+board_list=("radxa-cm3-io" "radxa-e23" "radxa-e25" "radxa-nx5" "radxa-zero" "radxa-zero2" "rockpi-4b" "rockpi-4cplus" "rock-3a" "rock-3b" "rock-3c" "rock-5a" "rock-5b" )
+model_list=("debian" "ubuntu")
+
 usage() {
     echo "====USAGE: $0 -b <board> -m <model>===="
-    echo "Options:"
-    echo "  ./$0 -b radxa-cm3-io -m debian"
-    echo "  ./$0 -b radxa-cm3-io -m ubuntu"
-    echo "  ./$0 -b radxa-e23 -m debian"
-    echo "  ./$0 -b radxa-e23 -m ubuntu"
-    echo "  ./$0 -b radxa-e25 -m debian"
-    echo "  ./$0 -b radxa-e25 -m ubuntu"
-    echo "  ./$0 -b radxa-nx5 -m debian"
-    echo "  ./$0 -b radxa-nx5 -m ubuntu"
-    echo "  ./$0 -b radxa-zero -m debian"
-    echo "  ./$0 -b radxa-zero -m ubuntu"
-    echo "  ./$0 -b radxa-zero2 -m debian"
-    echo "  ./$0 -b radxa-zero2 -m ubuntu"
-    echo "  ./$0 -b rockpi-4b -m debian"
-    echo "  ./$0 -b rockpi-4b -m ubuntu"
-    echo "  ./$0 -b rockpi-4cplus -m debian"
-    echo "  ./$0 -b rockpi-4cplus -m ubuntu"
-    echo "  ./$0 -b rockpi-s -m debian"
-    echo "  ./$0 -b rockpi-s -m ubuntu"
-    echo "  ./$0 -b rock-3a -m debian"
-    echo "  ./$0 -b rock-3a -m ubuntu"
-    echo "  ./$0 -b rock-3b -m debian"
-    echo "  ./$0 -b rock-3b -m ubuntu"
-    echo "  ./$0 -b rock-3c -m debian"
-    echo "  ./$0 -b rock-3c -m ubuntu"
-    echo "  ./$0 -b rock-5a -m debian"
-    echo "  ./$0 -b rock-5a -m ubuntu"
-    echo "  ./$0 -b rock-5b -m debian"
-    echo "  ./$0 -b rock-5b -m ubuntu"
+
+    echo "Board list:"
+    for board in ${board_list[@]}
+    do
+        echo "    $board"
+    done
+
+    echo " "
+    echo "Model list:"
+    for model in ${model_list[@]}
+    do
+        echo "    $model"
+    done
 }
 
 while getopts "b:m:h" flag; do
@@ -129,4 +116,4 @@ case $MODEL in
         ;;
 esac
 
-./build.sh -c $CPU -b $BOARD -m $MODEL -d $DISTRO -v $VARIANT -a $ARCH -f $FORMAT -0
+$SCRIPTS_DIR/build.sh -c $CPU -b $BOARD -m $MODEL -d $DISTRO -v $VARIANT -a $ARCH -f $FORMAT -0

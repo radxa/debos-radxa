@@ -68,36 +68,32 @@ Launch `./build.sh` to get build options.
 
 <pre>
 root@terra:~/debos-radxa# ./build.sh
-TOP DIR = /home/radxa/debos-radxa
-====USAGE: build.sh -c <cpu> -b <board> -m <model> -d <distro>  -v <variant> -a <arch> -f <format> [-0]====
-Specify -0 to disable debug-shell, useful for automated build.
-Options:
-  ./build.sh -c rk3399 -b rockpi-4b -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3399 -b rockpi-4b -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3399 -b rockpi-4cplus -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3399 -b rockpi-4cplus -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3566 -b radxa-cm3-io -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3566 -b radxa-cm3-io -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3566 -b radxa-e23 -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3566 -b radxa-e23 -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3568 -b radxa-e25 -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3568 -b radxa-e25 -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3568 -b rock-3a -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3568 -b rock-3a -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3568 -b rock-3b -m debian -d buster -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3568 -b rock-3b -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c rk3588 -b rock-5b -m debian -d bullseye -v xfce4 -a arm64 -f gpt
-  ./build.sh -c rk3588 -b rock-5b -m ubuntu -d focal -v server -a arm64 -f gpt
-  ./build.sh -c s905y2 -b radxa-zero -m debian -d buster -v xfce4 -a arm64 -f mbr
-  ./build.sh -c s905y2 -b radxa-zero -m ubuntu -d focal -v server -a arm64 -f mbr
-  ./build.sh -c a311d -b radxa-zero2 -m debian -d buster -v xfce4 -a arm64 -f mbr
-  ./build.sh -c a311d -b radxa-zero2 -m ubuntu -d focal -v server -a arm64 -f mbr
+TOP DIR = /build/stephen/debos-radxa
+====USAGE: ./build.sh -b <board> -m <model>====
+Board list:
+    radxa-cm3-io
+    radxa-e23
+    radxa-e25
+    radxa-nx5
+    radxa-zero
+    radxa-zero2
+    rockpi-4b
+    rockpi-4cplus
+    rock-3a
+    rock-3b
+    rock-3c
+    rock-5a
+    rock-5b
+
+Model list:
+    debian
+    ubuntu
 </pre>
 
 Start to build image such as rock-5b-ubuntu-focal-server-arm64-gpt image.
 
 <pre>
-root@terra:~/debos-radxa# ./build.sh -c rk3588 -b rock-5b -m ubuntu -d focal -v server -a arm64 -f gpt
+root@terra:~/debos-radxa# ./build.sh -b rock-5b -m ubuntu
 TOP DIR = /home/radxa/debos-radxa
 ====Start to build  board system image====
 TOP DIR = /home/radxa/debos-radxa

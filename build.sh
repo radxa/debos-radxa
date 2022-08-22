@@ -1,1 +1,1 @@
-scripts/build.sh
+scripts/build-supported-configuration.sh
