@@ -21,8 +21,6 @@ export IMAGESIZE=3000MB
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
 radxa-add-overlay*.deb
 rockchip-overlay*.deb
-#linux-headers-*5.10.131*.deb
-#linux-image-*5.10.131*.deb
 linux-headers-4.4.194-*-rk3399-rockchip*.deb
 linux-image-4.4.194-*-rk3399-rockchip*.deb
 linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb

@@ -27,6 +27,7 @@ linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb
 rockpi4-dtbo*.deb
 brcm-patchram-plus1*.deb
 broadcom-wifibt-firmware*.deb
+rkisp-engine*arm64.deb
 resize-assistant*.deb
 EOF
 
