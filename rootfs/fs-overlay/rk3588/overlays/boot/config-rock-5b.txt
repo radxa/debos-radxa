@@ -5,7 +5,7 @@
 #
 
 # For console
-cmdline: earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 console=tty1 consoleblank=0 loglevel=7
+cmdline: earlycon=uart8250,mmio32,0xfeb50000 console=ttyFIQ0 console=tty1 consoleblank=0 loglevel=0
 
 # For rootfs
 cmdline: panic rootwait rw init=/sbin/init rootfstype=ext4
