@@ -1,3 +1,6 @@
+  - action: apt
+    description: Xfce
+    packages: [
         xfce4, xfce4-goodies, task-xfce-desktop, lightdm, dialog,
-        tango-icon-theme,
+        tango-icon-theme ]
 

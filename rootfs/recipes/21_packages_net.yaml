@@ -1,5 +1,8 @@
+  - action: apt
+    description: Net
+    packages: [
         isc-dhcp-client, avahi-utils, avahi-daemon, dhcpcd5, ethtool, fping,
         iperf3, iproute2, iputils-ping, iw, net-tools, network-manager, ntp,
         openssh-client, openssh-server, resolvconf, ssh, wireless-tools,
-        wpasupplicant, nmap,
+        wpasupplicant, nmap ]
 

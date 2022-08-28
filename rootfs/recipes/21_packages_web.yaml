@@ -1,2 +1,5 @@
-        firefox-esr, curl,
+  - action: apt
+    description: Web
+    packages: [
+        firefox-esr, curl ]
 

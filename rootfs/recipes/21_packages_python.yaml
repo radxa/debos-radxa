@@ -1,2 +1,5 @@
-        python3.7, python3-pip,
+  - action: apt
+    description: Python
+    packages: [
+        python3.7, python3-pip ]
 

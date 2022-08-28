@@ -1,2 +1,5 @@
-        firmware-misc-nonfree,
+  - action: apt
+    description: Kernel
+    packages: [
+        firmware-misc-nonfree ]
 

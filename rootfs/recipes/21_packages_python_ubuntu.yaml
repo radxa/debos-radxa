@@ -1,2 +1,5 @@
-        python, python2.7, libpython2.7, python3.8, libpython3.8, python3-pip,
+  - action: apt
+    description: Ubuntu20 python
+    packages: [
+        python, python2.7, libpython2.7, python3.8, libpython3.8, python3-pip ]
 

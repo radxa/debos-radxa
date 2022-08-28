@@ -1,2 +1,18 @@
   - action: apt
+    description: Add tools for get APT public key
     packages: [
+        wget, gnupg2 ]
+
+  - action: run
+    description: Add Radxa APT
+    chroot: true
+    command: |
+      set -e
+
+      echo "deb http://apt.radxa.com/{{$suite}}-stable/ {{$suite}} main" | tee -a /etc/apt/sources.list.d/apt-radxa-com.list
+      echo "#deb http://apt.radxa.com/{{$suite}}-testing/ {{$suite}} main" | tee -a /etc/apt/sources.list.d/apt-radxa-com.list
+
+      wget -O - apt.radxa.com/{{$suite}}-stable/public.key | apt-key add -
+
+      apt update -y
+

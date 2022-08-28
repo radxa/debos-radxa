@@ -1,0 +1,24 @@
+  - action: apt
+    description: libs
+{{ if eq $model "debian"}}
+  {{ if eq $suite "buster"}}
+    packages: [
+        gstreamer1.0-x, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
+        gstreamer1.0-plugins-bad, gstreamer1.0-plugins-ugly, libxml2,
+        libpcap0.8, libaudit1, libnotify4, libc6, libjson-c4, libjson-c-dev,
+        libgtest-dev, libgcc1, libstdc++6 ]
+  {{ else if eq $suite "bullseye"}}
+    packages: [
+        gstreamer1.0-x, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
+        gstreamer1.0-plugins-bad, gstreamer1.0-plugins-ugly, libxml2,
+        libpcap0.8, libaudit1, libnotify4, libc6, libjson-c5, libjson-c-dev,
+        libgtest-dev, libgcc-s1, libstdc++6 ]
+  {{ end }}
+{{ else if eq $model "ubuntu"}}
+    packages: [
+        gstreamer1.0-x, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
+        gstreamer1.0-plugins-bad, gstreamer1.0-plugins-ugly, libxml2,
+        libpcap0.8, libaudit1, libnotify4, libc6, libjson-c4, libjson-c-dev,
+        libgtest-dev, libgcc1, libstdc++6 ]
+{{ end }}
+

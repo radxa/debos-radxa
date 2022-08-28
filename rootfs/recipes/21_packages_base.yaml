@@ -1,3 +1,6 @@
+  - action: apt
+    description: Base
+    packages: [
         sudo, systemd, systemd-sysv, gdisk, parted, u-boot-tools,
 
         linux-base,
@@ -14,3 +17,6 @@
         gnupg2,
 
         i2c-tools,
+
+        rockchip-overlay ]
+

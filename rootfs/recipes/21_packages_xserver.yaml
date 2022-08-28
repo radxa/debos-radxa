@@ -1,2 +1,6 @@
+  - action: apt
+    description: Xserver
+    packages: [
         libxfont1, libinput-bin, libinput10, libwacom-common, libwacom2,
-        libunwind8, xserver-xorg-input-libinput
+        libunwind8, xserver-xorg-input-libinput ]
+

@@ -1,2 +1,8 @@
-        sudo ]
+  - action: run
+    description: Do nothing
+    chroot: true
+    command: |
+      set -e
+
+      echo "Nothing"
 
