@@ -75,21 +75,3 @@ esac
 echo "I: show /etc/apt/sources.list"
 cat /etc/apt/sources.list
 
-# Fix Radxa APT Source.
-# APT_REPO=("radxa")
-# APT_REPO_BRANCH=("stretch-stable" "stretch-testing" "buster-stable" "buster-tesitng" "bionic-stable" "bionic-testing")
-rm -rf /etc/apt/sources.list.d/apt-${APT_REPO}-com.list
-
-if [[ "${APT_REPO}" == "radxa" ]]; then
-    cat > /etc/apt/sources.list.d/apt-${APT_REPO}-com.list <<EOF
-deb http://apt.${APT_REPO}.com/${SUITE}-stable/ ${SUITE} main
-#deb http://apt.${APT_REPO}.com/${SUITE}-testing/ ${SUITE} main
-EOF
-fi
-
-echo "I: show /etc/apt/sources.list.d/apt-${APT_REPO}-com.list"
-cat /etc/apt/sources.list.d/apt-${APT_REPO}-com.list
-
-# Add Radxa APT Source Key.
-apt-key add - < /etc/apt/sources.list.d/apt-${APT_REPO}-com.key
-rm -rf /etc/apt/sources.list.d/apt-${APT_REPO}-com.key
