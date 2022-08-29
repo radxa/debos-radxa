@@ -60,6 +60,8 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_sound.yaml
 21_packages_utilities.yaml
 21_packages_net.yaml
+21_packages_web.yaml
+21_packages_xfce.yaml
 22_packages_end.yaml
 70_system_common_setup.yaml
 85_u_boot_rk35xx.yaml
