@@ -1,21 +1,28 @@
-# debos-radxa
+# debos-radxa (Generating the testing version of images)
 
 ## Introduction
 
-This guide describes how to use debos-radxa, based on [debos](https://github.com/go-debos/debos), to generate Radxa system image.
+This guide describes how to use debos-radxa, based on [debos](https://github.com/go-debos/debos), to generate Debian/Ubuntu image for Radxa boards.
+
+Please note that the pre-built system images belongs to testing version.
 
 ## Supported boards and system images
 
-* Radxa CM3 IO    : https://github.com/radxa-build/radxa-cm3-io/releases/latest
-* Radxa E23       : https://github.com/radxa-build/radxa-e23/releases/latest
-* Radxa E25       : https://github.com/radxa-build/radxa-e25/releases/latest
-* Radxa Zero      : https://github.com/radxa-build/radxa-zero/releases/latest
-* Radxa Zero 2    : https://github.com/radxa-build/radxa-zero2/releases/latest
-* ROCK 3A         : https://github.com/radxa-build/rock-3a/releases/latest
-* ROCK 3B         : https://github.com/radxa-build/rock-3b/releases/latest
-* ROCK 5B         : https://github.com/radxa-build/rock-5b/releases/latest
-* ROCK Pi 4B      : https://github.com/radxa-build/rockpi-4b/releases/latest
-* ROCK Pi 4C Plus : https://github.com/radxa-build/rockpi-4cplus/releases/latest
+* Radxa CM3 IO
+* Radxa E23
+* Radxa E25
+* Radxa NX5
+* Radxa Zero
+* Radxa Zero 2
+* ROCK 3A
+* ROCK 3B
+* ROCK 3C
+* ROCK 5A
+* ROCK 5B
+* ROCK Pi 4B
+* ROCK 4C Plus
+
+Pre-built system images: https://github.com/radxa/debos-radxa/releases/latest
 
 ## Build Host
 
