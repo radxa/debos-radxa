@@ -1,8 +1,16 @@
   - action: apt
-    description: Debian11 lib
+    description: Debian11 libdevel
     packages: [
         gstreamer1.0-x, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
         gstreamer1.0-plugins-bad, gstreamer1.0-plugins-ugly, libxml2,
         libpcap0.8, libaudit1, libnotify4, libc6, libjson-c5, libjson-c-dev,
-        libgtest-dev, libgcc-s1, libstdc++6 ]
+        libgtest-dev, libgcc-s1, libstdc++6
+
+{{ if eq $board "rock-5b"}}
+        , libpixman-1-dev, x11proto-dev, libxfont-dev, libxkbfile-dev, libpciaccess-dev,
+        mesa-common-dev, libxcb-icccm4, libxcb-image0, libxcb-keysyms1, libxcb-randr0,
+        libxcb-render-util0, libxcb-xkb1, libxcb-xv0, libatomic1, libjsoncpp24,
+        libminizip1, libre2-9, libwebpdemux2, ibxslt1.1
+{{ end }}
+        ]
 
