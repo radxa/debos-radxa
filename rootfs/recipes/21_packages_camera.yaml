@@ -1,0 +1,10 @@
+  - action: apt
+    description: Camera library
+{{ if eq $cpu "rk3588"}}
+    packages: [
+        camera-engine-rkaiq ]
+{{ else if eq $cpu "rk3399"}}
+    packages: [
+        rkisp-engine ]
+{{ end }}
+
