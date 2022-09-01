@@ -1,0 +1,6 @@
+  - action: apt
+    description: Mpp
+    packages: [
+        librockchip-mpp1, librockchip-mpp-dev, librockchip-vpu0,
+        rockchip-mpp-demos ]
+
