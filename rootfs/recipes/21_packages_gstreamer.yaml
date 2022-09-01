@@ -1,0 +1,17 @@
+  - action: apt
+    description: Gstreamer
+    packages: [
+        gir1.2-gst-plugins-bad-1.0=1.18.5-1, gir1.2-gst-plugins-base-1.0=1.18.5-1,
+        gir1.2-gstreamer-1.0=1.18.5-1, gstreamer1.0-alsa=1.18.5-1,
+        gstreamer1.0-gl=1.18.5-1, gstreamer1.0-gtk3=1.18.5-1,
+        gstreamer1.0-opencv=1.18.5-1, gstreamer1.0-plugins-bad-apps=1.18.5-1,
+        gstreamer1.0-plugins-bad=1.18.5-1, gstreamer1.0-plugins-base-apps=1.18.5-1,
+        gstreamer1.0-plugins-base=1.18.5-1, gstreamer1.0-plugins-good=1.18.5-1,
+        gstreamer1.0-pulseaudio=1.18.5-1, gstreamer1.0-qt5=1.18.5-1,
+        gstreamer1.0-rockchip1=1.14-4, gstreamer1.0-tools=1.18.5-1,
+        gstreamer1.0-wpe=1.18.5-1, gstreamer1.0-x=1.18.5-1,
+        libgstreamer-gl1.0-0=1.18.5-1, libgstreamer-opencv1.0-0=1.18.5-1,
+        libgstreamer-plugins-bad1.0-0=1.18.5-1, libgstreamer-plugins-bad1.0-dev=1.18.5-1,
+        libgstreamer-plugins-base1.0-0=1.18.5-1, libgstreamer-plugins-base1.0-dev=1.18.5-1,
+        libgstreamer1.0-0=1.18.5-1, libgstreamer1.0-dev=1.18.5-1 ]
+
