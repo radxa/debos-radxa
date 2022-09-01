@@ -1,0 +1,6 @@
+  - action: apt
+    description: WiFi and Bluetooth firmware
+    packages: [
+        broadcom-wifibt-firmware, intel-wifibt-firmware, qualcomm-wifibt-firmware,
+        realtek-wifibt-firmware ]
+
