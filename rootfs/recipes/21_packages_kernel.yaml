@@ -1,8 +1,14 @@
   - action: apt
+    description: Install packages needed for kernel installation
+    packages: [
+        rockchip-overlay
+        ]
+
+  - action: apt
     description: Kernel
     packages: [
 {{ if eq $cpu "rk3588"}}
-        rockchip-overlay, linux-5.10-rock-5-latest
+        linux-5.10-rock-5-latest
 {{ end }}
         ]
 
