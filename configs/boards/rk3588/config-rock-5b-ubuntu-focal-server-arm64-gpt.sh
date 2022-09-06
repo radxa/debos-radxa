@@ -19,16 +19,7 @@ export IMAGESIZE=2000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
-radxa-add-overlay*.deb
-rockchip-overlay*.deb
-linux-headers-5.10.66*.deb
-linux-image-5.10.66*.deb
-intel-wifibt-firmware*.deb
-realtek-wifibt-firmware*.deb
-resize-assistant*.deb
-librga2_2.2.0-1_arm64.deb
-librga2-dbgsym_2.2.0-1_arm64.deb
-librga-dev_2.2.0-1_arm64.deb
+
 EOF
 
 # Add yaml variable
@@ -55,11 +46,13 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_base.yaml
 21_packages_bluetooth.yaml
 21_packages_devel.yaml
+21_packages_kernel.yaml
 21_packages_libs_ubuntu.yaml
 21_packages_math.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
 21_packages_net.yaml
+21_packages_wifibt.yaml
 22_packages_end.yaml
 70_system_common_setup.yaml
 85_u_boot_rk35xx.yaml
