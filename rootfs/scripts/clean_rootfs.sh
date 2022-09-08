@@ -24,3 +24,6 @@ rm -rf /etc/apt/sources.list.d/*.key
 rm -rf /packages
 rm -rf /var/lib/apt/lists/*
 #rm -rf /lib/systemd/system/wpa_supplicant@.service
+
+# Disable dhcpcd service. Instead we use NetworkManager.
+systemctl disable dhcpcd > /dev/null || true
