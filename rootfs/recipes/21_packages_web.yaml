@@ -1,9 +1,11 @@
   - action: apt
     description: Web
     packages: [
-{{ if eq $model "debian"}}
-  {{ if eq $suite "bullseye"}}
-    {{ if eq $cpu "rk3588"}}
+{{ if eq $model "debian" }}
+  {{ if eq $suite "bullseye" }}
+    {{ if eq $cpu "rk3588" }}
+        chromium-x11=91.0.4472.164,
+    {{ else if eq $cpu "rk3399" }}
         chromium-x11=91.0.4472.164,
     {{ end }}
   {{ end }}
