@@ -1,6 +1,5 @@
   - action: apt
     description: Xserver
     packages: [
-        xorg-server-source=2:1.20.11-1, xserver-common=2:1.20.11-1, xserver-xephyr=2:1.20.11-1,
         xserver-xorg-core=2:1.20.11-1, xserver-xorg-dev=2:1.20.11-1, xserver-xorg-legacy=2:1.20.11-1 ]
 
