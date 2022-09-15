@@ -14,6 +14,13 @@
 
       wget -O - apt.radxa.com/{{$suite}}-stable/public.key | apt-key add -
 
+
+{{ if eq $cpu "s905y2" }}
+
+{{ else if eq $cpu "a311d" }}
+
+{{ else }}
+
   - action: run
     description: Add Radxa APT priority
     chroot: true
@@ -24,3 +31,4 @@
       echo "Pin: origin apt.radxa.com" >> /etc/apt/preferences.d/radxa-conf
       echo "Pin-Priority: 900" >> /etc/apt/preferences.d/radxa-conf
 
+{{ end }}
