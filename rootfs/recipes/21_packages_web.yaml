@@ -7,8 +7,14 @@
         chromium-x11=91.0.4472.164,
     {{ else if eq $cpu "rk3399" }}
         chromium-x11=91.0.4472.164,
+    {{ else }}
+        chromium,
     {{ end }}
+  {{ else }}
+        chromium,
   {{ end }}
+{{ else if eq $model "ubuntu" }}
+        chromium-browser,
 {{ end }}
         firefox-esr, curl ]
 
