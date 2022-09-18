@@ -48,6 +48,7 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_camera.yaml
 21_packages_devel.yaml
 21_packages_libs.yaml
+21_packages_libv4l.yaml
 21_packages_graphics.yaml
 21_packages_gstreamer.yaml
 21_packages_kernel.yaml
