@@ -3,9 +3,15 @@
     packages: [
 {{ if eq $model "debian" }}
   {{ if eq $suite "bullseye" }}
-    {{ if eq $cpu "rk3588" }}
+    {{ if eq $cpu "rk3399" }}
         chromium-x11=91.0.4472.164,
-    {{ else if eq $cpu "rk3399" }}
+    {{ else if eq $cpu "rk3566" }}
+        chromium-x11=91.0.4472.164,
+    {{ else if eq $cpu "rk3568" }}
+        chromium-x11=91.0.4472.164,
+    {{ else if eq $cpu "rk3588" }}
+        chromium-x11=91.0.4472.164,
+    {{ else if eq $cpu "rk3588s" }}
         chromium-x11=91.0.4472.164,
     {{ else }}
         chromium,
