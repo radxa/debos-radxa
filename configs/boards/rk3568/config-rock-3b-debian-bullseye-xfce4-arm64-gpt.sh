@@ -19,14 +19,7 @@ export IMAGESIZE=4000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
-radxa-add-overlay*.deb
-rockchip-overlay*.deb
-linux-headers-4.19.193-*.deb
-linux-image-4.19.193-*.deb
-linux-4.19-rock-3-latest*.deb
-resize-assistant*.deb
-brcm-patchram-plus1*.deb
-broadcom-wifibt-firmware*.deb
+
 EOF
 
 # Add yaml variable
@@ -53,13 +46,20 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_base.yaml
 21_packages_bluetooth.yaml
 21_packages_devel.yaml
-21_packages_libs_debian_bullseye.yaml
+21_packages_graphics.yaml
+21_packages_kernel.yaml
+21_packages_libs.yaml
+21_packages_libv4l.yaml
 21_packages_math.yaml
+21_packages_mpp.yaml
+21_packages_mpv.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
 21_packages_net.yaml
 21_packages_web.yaml
+21_packages_wifibt.yaml
 21_packages_xfce.yaml
+21_packages_xserver.yaml
 22_packages_end.yaml
 70_system_common_setup.yaml
 85_u_boot_rk35xx.yaml

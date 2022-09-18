@@ -54,11 +54,13 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_base.yaml
 21_packages_bluetooth.yaml
 21_packages_devel.yaml
-21_packages_libs_ubuntu.yaml
+21_packages_kernel.yaml
+21_packages_libs.yaml
 21_packages_math.yaml
+21_packages_net.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
-21_packages_net.yaml
+21_packages_wifibt.yaml
 22_packages_end.yaml
 70_system_common_setup.yaml
 85_u_boot_rk35xx.yaml

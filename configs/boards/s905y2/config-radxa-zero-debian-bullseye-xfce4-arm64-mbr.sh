@@ -19,11 +19,6 @@ export IMAGESIZE=3000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
-amlogic-overlay*.deb
-linux-headers-5.10.69*amlogic*.deb
-linux-image-5.10.69*amlogic*.deb
-linux-5.10-radxa-zero-latest*.deb
-resize-assistant*.deb
 amlogic-adbd*.deb
 dthelper*.deb
 libreelec-alsa-utils*.deb
@@ -54,6 +49,7 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_bluetooth.yaml
 21_packages_devel.yaml
 21_packages_libs.yaml
+21_packages_kernel.yaml
 21_packages_math.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
