@@ -1,0 +1,8 @@
+  - action: apt
+    description: Libv4l
+    packages: [
+        dvb-tools=1.20.0-2, libdvbv5-0=1.20.0-2, libdvbv5-doc=1.20.0-2,
+        libv4l2rds0=1.20.0-2, libv4l-dev=1.20.0-2, qv4l2=1.20.0-2,
+        ir-keytable=1.20.0-2, libdvbv5-dev=1.20.0-2, libv4l-0=1.20.0-2,
+        libv4lconvert0=1.20.0-2, libv4l-rkmpp=1.4.0-1, v4l-utils=1.20.0-2 ]
+
