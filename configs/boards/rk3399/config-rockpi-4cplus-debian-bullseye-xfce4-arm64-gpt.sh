@@ -53,6 +53,7 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_graphics.yaml
 21_packages_kernel.yaml
 21_packages_libs.yaml
+21_packages_libv4l.yaml
 21_packages_math.yaml
 21_packages_mpp.yaml
 21_packages_mpv.yaml
