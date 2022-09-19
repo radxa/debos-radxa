@@ -27,3 +27,5 @@ rm -rf /var/lib/apt/lists/*
 
 # Disable dhcpcd service. Instead we use NetworkManager.
 systemctl disable dhcpcd > /dev/null || true
+
+find / -name ".gitkeep" | xargs rm  || true
