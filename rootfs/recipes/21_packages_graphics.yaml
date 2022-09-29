@@ -12,6 +12,8 @@
 {{ else if eq $cpu "rk3588s" }}
         libmali-valhall-g610-g6p0-x11,
 {{ end }}
-        glmark2-data, glmark2-es2-x11
+        glmark2-data, glmark2-es2-x11,
+
+        libkms1=2.4.104-1, libdrm-cursor=1.3.0-1, libdrm-cursor-dev=1.3.0-1
         ]
 
