@@ -12,6 +12,8 @@
 
         bash-completion,
 
+        radxa-test,
+
         initramfs-tools, zip, unzip, dirmngr, file, htop, jq, mtd-utils, rfkill,
         rsync, usbutils, xz-utils, gnupg, gnupg1, gnupg2, kbd, sysfsutils, findutils,
         i2c-tools, dosfstools, lm-sensors ]
