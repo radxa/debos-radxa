@@ -1,4 +1,4 @@
-# debos-radxa (Generating the testing version of images)
+# debos-radxa (Test images)
 
 ## Introduction
 
