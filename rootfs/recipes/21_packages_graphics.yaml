@@ -3,10 +3,6 @@
     packages: [
 {{ if eq $cpu "rk3399" }}
         libmali-midgard-t86x-r18p0-x11,
-{{ else if eq $cpu "rk3566" }}
-        libmali-bifrost-g52-g2p0-x11,
-{{ else if eq $cpu "rk3568" }}
-        libmali-bifrost-g52-g2p0-x11,
 {{ else if eq $cpu "rk3588" }}
         libmali-valhall-g610-g6p0-x11,
 {{ else if eq $cpu "rk3588s" }}
