@@ -23,7 +23,6 @@ linux-headers-4.4.194-*-rk3399-rockchip*.deb
 linux-image-4.4.194-*-rk3399-rockchip*.deb
 linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb
 rockpi4-dtbo*.deb
-rkisp-engine*arm64.deb
 EOF
 
 # Add yaml variable
