@@ -9,7 +9,7 @@ BUILD_DIR=$TOP_DIR/build
 
 # env
 export CPU=rk3399
-export BOARD=rockpi-4cplus
+export BOARD=rock-4c-plus
 export MODEL=debian
 export DISTRO=buster
 export VARIANT=xfce4

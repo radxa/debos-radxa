@@ -76,7 +76,7 @@ Launch `./build.sh` to get build options.
 <pre>
 root@terra:~/debos-radxa# ./build.sh
 TOP DIR = /build/stephen/debos-radxa
-====USAGE: ./build.sh -b <board> -m <model>====
+====USAGE: ./build-os.sh -b <board> -m <model>====
 Board list:
     radxa-cm3-io
     radxa-e23
@@ -85,7 +85,7 @@ Board list:
     radxa-zero
     radxa-zero2
     rockpi-4b
-    rockpi-4cplus
+    rock-4c-plus
     rock-3a
     rock-3b
     rock-3c
@@ -100,7 +100,7 @@ Model list:
 Start to build image such as rock-5b-ubuntu-focal-server-arm64-gpt image.
 
 <pre>
-root@terra:~/debos-radxa# ./build.sh -b rock-5b -m ubuntu
+root@terra:~/debos-radxa# ./build-os.sh -b rock-5b -m ubuntu
 TOP DIR = /home/radxa/debos-radxa
 ====Start to build  board system image====
 TOP DIR = /home/radxa/debos-radxa
@@ -138,9 +138,8 @@ In this example we will build ROCK 3A's system image with full options:
 radxa@x86-64:~$ cd ~
 radxa@x86-64:~$ cd debos-radxa/
 radxa@x86-64:~/debos-radxa$
-radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --device /dev/kvm --user $(id -u) --security-opt label=disable \
---workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build.sh godebos/debos \
--c rk3568 -b rock-3a -m ubuntu -d focal -v server -a arm64 -f gpt
+radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -b rock-3a -m ubuntu
 </pre>
 
 #### Example two of building radxa-zero2-ubuntu-focal-server-arm64-mbr image
@@ -150,14 +149,11 @@ You can also build supported configuration with the following commands:
 <pre>
 radxa@x86-64:~$ cd ~
 radxa@x86-64:~$ cd debos-radxa/
-radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --device /dev/kvm --user $(id -u) --security-opt label=disable \
---workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint scripts/build-supported-configuration.sh \
-godebos/debos -m ubuntu -b radxa-zero2
+radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -m ubuntu -b radxa-zero2
 </pre>
 
 The generated system images will be copied to `./output` direcotry. You can specify different configuration in the 3rd line.
-
-Note: GitHub Actions uses some different options for `docker run` due to their runners do not support nested virtualization (i.e. no `/dev/kvm`). In that's your case you need to specify `--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g` instead of `--device /dev/kvm`. It also uses a wrapper script to only build the supported configurations.
 
 ## How to debug errors
 
@@ -167,7 +163,7 @@ Currently `dev-shell` uses a custom docker image to build, so your result might 
 
 ## Add support for new boards
 
-`./boards/*/packages.list.d/*.list` are board-specific debos recipes.
+`./configs/boards` are board-specific debos recipes.
 
 `./rootfs/packages` contains additional packages.
 

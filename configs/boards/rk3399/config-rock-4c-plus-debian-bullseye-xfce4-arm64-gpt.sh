@@ -9,25 +9,20 @@ BUILD_DIR=$TOP_DIR/build
 
 # env
 export CPU=rk3399
-export BOARD=rockpi-4cplus
-export MODEL=ubuntu
-export DISTRO=focal
-export VARIANT=server
+export BOARD=rock-4c-plus
+export MODEL=debian
+export DISTRO=bullseye
+export VARIANT=xfce4
 export ARCH=arm64
 export FORMAT=gpt
-export IMAGESIZE=2000MB
+export IMAGESIZE=4000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
-radxa-add-overlay*.deb
-rockchip-overlay*.deb
 linux-headers-4.4.194-*-rk3399-rockchip*.deb
 linux-image-4.4.194-*-rk3399-rockchip*.deb
 linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb
 rockpi4-dtbo*.deb
-brcm-patchram-plus1*.deb
-broadcom-wifibt-firmware*.deb
-resize-assistant*.deb
 EOF
 
 # Add yaml variable
@@ -47,18 +42,28 @@ EOF
 # Add images yaml
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.list <<EOF
 00_architecture.yaml
-01_debootstrap_ubuntu.yaml
+01_debootstrap_debian.yaml
 02_partitions_rockchip.yaml
 03_filesystem_deploy.yaml
 20_packages_start.yaml
 21_packages_base.yaml
 21_packages_bluetooth.yaml
 21_packages_devel.yaml
+21_packages_graphics.yaml
+21_packages_gstreamer.yaml
+21_packages_kernel.yaml
 21_packages_libs.yaml
+21_packages_libv4l.yaml
 21_packages_math.yaml
+21_packages_mpp.yaml
+21_packages_mpv.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
 21_packages_net.yaml
+21_packages_web.yaml
+21_packages_wifibt.yaml
+21_packages_xfce.yaml
+21_packages_xserver.yaml
 22_packages_end.yaml
 70_system_common_setup.yaml
 85_u_boot.yaml
