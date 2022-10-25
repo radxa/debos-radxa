@@ -1,10 +1,10 @@
-# debos-radxa (Test images)
+# debos-radxa
 
 ## Introduction
 
 This guide describes how to use debos-radxa, based on [debos](https://github.com/go-debos/debos), to generate Debian/Ubuntu image for Radxa boards.
 
-Please note that the pre-built system images belongs to testing version.
+Please note that the [release](https://github.com/radxa/debos-radxa/releases/latest) are auto generated builds without additional testing, if you have issues with the images, please submit an issue.
 
 ## Supported boards and system images
 
@@ -19,10 +19,10 @@ Please note that the pre-built system images belongs to testing version.
 * ROCK 3C
 * ROCK 5A
 * ROCK 5B
-* ROCK Pi 4B
-* ROCK 4C Plus
+* ROCK 4B
+* ROCK 4C+
 
-Pre-built system images: https://github.com/radxa/debos-radxa/releases/latest
+Auto generated build images: https://github.com/radxa/debos-radxa/releases/latest
 
 ## Build Host
 
