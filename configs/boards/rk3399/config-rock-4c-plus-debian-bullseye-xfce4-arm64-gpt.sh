@@ -67,6 +67,7 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_xserver.yaml
 22_packages_end.yaml
 70_system_common_setup.yaml
+81_rockchip_enable_x11_ega.yaml
 85_u_boot.yaml
 90_clean_rootfs.yaml
 EOF

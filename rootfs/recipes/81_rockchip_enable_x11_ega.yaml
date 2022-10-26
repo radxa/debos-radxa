@@ -1,0 +1,10 @@
+  # rockchip-overlay could be installed in 21_packages_kernel.yaml, 70_system_common_setup.yaml or 80_preinstall_tb_packages.yaml
+  # Set this recipe to 81 to make sure this is always running after rockchip-overlay is installed
+  # This is only a temporary hack, as the settings might be overwritten by updating rockchip-overlay
+  - action: run
+    description: Enable ega acceleration in Rockchip products
+    chroot: true
+    command: |
+      sed -i -E /etc/X11/xorg.conf.d/20-modesetting.conf \
+          -e 's/^(\s*Option\s*"AccelMethod".*)$/#\1/g' \
+          -e 's/^\#(\s*Option\s*"AccelMethod"\s*"exa")$/\1/g'
