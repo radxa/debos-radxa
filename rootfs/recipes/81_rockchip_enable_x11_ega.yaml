@@ -8,3 +8,4 @@
       sed -i -E /etc/X11/xorg.conf.d/20-modesetting.conf \
           -e 's/^(\s*Option\s*"AccelMethod".*)$/#\1/g' \
           -e 's/^\#(\s*Option\s*"AccelMethod"\s*"exa")$/\1/g'
+      chown -R rock:rock /home/rock

@@ -57,6 +57,10 @@ prepare_build() {
     echo "====Start to preppare workspace directory, build===="
     cp -av $TOP_DIR/rootfs/fs-overlay/common/overlays/* $BUILD_DIR/overlays
     cp -av $TOP_DIR/rootfs/fs-overlay/${CPU}/overlays/* $BUILD_DIR/overlays
+    if [ -d $TOP_DIR/rootfs/fs-overlay/${BOARD}/overlays/ ]
+    then
+        cp -av $TOP_DIR/rootfs/fs-overlay/${BOARD}/overlays/* $BUILD_DIR/overlays
+    fi
 
     cp -av ${BUILD_DIR}/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list ${BUILD_DIR}/overlays/packages/preinstall-packages.list
 
