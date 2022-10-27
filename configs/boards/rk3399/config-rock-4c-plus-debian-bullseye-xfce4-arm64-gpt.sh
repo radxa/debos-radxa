@@ -23,6 +23,31 @@ linux-headers-4.4.194-*-rk3399-rockchip*.deb
 linux-image-4.4.194-*-rk3399-rockchip*.deb
 linux-firmware-image-4.4.194-*-rk3399-rockchip*.deb
 rockpi4-dtbo*.deb
+librga2_2.1.0-1_arm64.deb
+librga-dev_2.1.0-1_arm64.deb
+librga2-dbgsym_2.1.0-1_arm64.deb
+rockchip-overlay*all.deb
+dvb-tools-dbgsym_1.20.0-2_arm64.deb
+libv4l-rkmpp-dbgsym_1.4.0-1_arm64.deb
+dvb-tools_1.20.0-2_arm64.deb
+libv4l-rkmpp_1.4.0-1_arm64.deb
+ir-keytable-dbgsym_1.20.0-2_arm64.deb
+libv4l2rds0-dbgsym_1.20.0-2_arm64.deb
+ir-keytable_1.20.0-2_arm64.deb
+libv4l2rds0_1.20.0-2_arm64.deb
+libdvbv5-0-dbgsym_1.20.0-2_arm64.deb
+libv4lconvert0-dbgsym_1.20.0-2_arm64.deb
+libdvbv5-0_1.20.0-2_arm64.deb
+libv4lconvert0_1.20.0-2_arm64.deb
+libdvbv5-dev_1.20.0-2_arm64.deb
+qv4l2-dbgsym_1.20.0-2_arm64.deb
+libdvbv5-doc_1.20.0-2_all.deb
+qv4l2_1.20.0-2_arm64.deb
+libv4l-0-dbgsym_1.20.0-2_arm64.deb
+v4l-utils-dbgsym_1.20.0-2_arm64.deb
+libv4l-0_1.20.0-2_arm64.deb
+v4l-utils_1.20.0-2_arm64.deb
+libv4l-dev_1.20.0-2_arm64.deb
 EOF
 
 # Add yaml variable
