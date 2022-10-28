@@ -19,7 +19,7 @@ export IMAGESIZE=2000MB
 
 # Add pre-installed packages for target system
 cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
-
+radxa-e25-led_0.1_arm64.deb
 EOF
 
 # Add yaml variable
