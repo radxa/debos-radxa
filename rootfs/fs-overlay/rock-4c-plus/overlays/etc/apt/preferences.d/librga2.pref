@@ -1,0 +1,11 @@
+Package: librga2
+Pin: version 2.1.*
+Pin-Priority: 1001
+
+Package: librga-dev
+Pin: version 2.1.*
+Pin-Priority: 1001
+
+Package: librga2-dbgsym
+Pin: version 2.1.*
+Pin-Priority: 1001
