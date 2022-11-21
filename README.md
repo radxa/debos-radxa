@@ -37,7 +37,7 @@ $ sudo apt-get install -y git user-mode-linux libslirp-helper
 
 ### Install Docker Engine on Ubuntu
 
-See Docker Docs [installing Docker Engineer on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
+See Docker Docs [installing Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
 
 ## Use Git to Clone debos-radxa
 
