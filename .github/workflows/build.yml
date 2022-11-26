@@ -8,6 +8,7 @@ on:
       - 'configs/**'
       - 'rootfs/**'
       - 'scripts/**'
+      - '.github/**'
 
 jobs:
   prepare_release:
@@ -30,13 +31,28 @@ jobs:
       upload_url: ${{ steps.release.outputs.upload_url }}
       release_id: ${{ steps.release.outputs.id }}
       tag_name: ${{ steps.time.outputs.time }}
+  prepare_supported_configs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create the build combinations
+        id: combinations
+        run: |
+          ${GITHUB_WORKSPACE}/scripts/generate-matrix-include.sh \
+          -b radxa-cm3-io,radxa-e23,radxa-e25,radxa-nx5,radxa-zero,radxa-zero2,rockpi-4b,rock-4c-plus,rock-3a,rock-3b,rock-3c,rock-5a,rock-5b \
+          -m debian,ubuntu \
+          -v xfce4,server >> $GITHUB_OUTPUT
+    outputs:
+      combinations: ${{ steps.combinations.outputs.combinations }}
   build:
     runs-on: ubuntu-latest
-    needs: prepare_release
+    needs:
+      - prepare_release
+      - prepare_supported_configs
     strategy:
       matrix:
-        BOARD: [radxa-cm3-io, radxa-e23, radxa-e25, radxa-nx5, radxa-zero, radxa-zero2, rockpi-4b, rock-4c-plus, rock-3a, rock-3b, rock-3c, rock-5a, rock-5b]
-        MODEL: [debian, ubuntu]
+        include: ${{ fromJson(needs.prepare_supported_configs.outputs.combinations) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -44,7 +60,7 @@ jobs:
         run: |
           docker run --rm --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
           --workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./scripts/build-supported-configuration.sh godebos/debos \
-          -b ${{ matrix.BOARD }} -m ${{ matrix.MODEL }}
+          -b ${{ matrix.BOARD }} -m ${{ matrix.MODEL }} -v ${{ matrix.VARIANT }}
       - name: Upload image
         uses: xresloader/upload-to-github-release@v1
         env:

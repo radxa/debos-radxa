@@ -25,7 +25,7 @@ usage() {
     done
 }
 
-while getopts "b:m:h" flag; do
+while getopts "b:m:v:h" flag; do
     case $flag in
         b)
             BOARD="$OPTARG"
@@ -33,6 +33,8 @@ while getopts "b:m:h" flag; do
         m)
             MODEL="$OPTARG"
             ;;
+        v)
+            VARIANT="$OPTARG"
 	esac
 done
 
@@ -97,18 +99,9 @@ case $MODEL in
                 DISTRO="buster"
                 ;;
         esac
-        case $BOARD in
-            rockpi-s)
-                VARIANT="server"
-                ;;
-            *)
-                VARIANT="xfce4"
-                ;;
-        esac
         ;;
     ubuntu)
         DISTRO="focal"
-        VARIANT="server"
         ;;
     *)
         echo "Unsupported model $MODEL!"
