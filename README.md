@@ -29,7 +29,14 @@ Auto generated build images: https://github.com/radxa/debos-radxa/releases/lates
 ### Required Packages for the Build Host
 
 You must install essential host packages on your build host.
-The following command installs the host packages on an Ubuntu distribution
+
+The following command installs the host packages on an Ubuntu distribution.
+
+<pre>
+$ sudo apt-get install -y git
+</pre>
+
+The following command installs the host packages on an Debian distribution.
 
 <pre>
 $ sudo apt-get install -y git user-mode-linux libslirp-helper
