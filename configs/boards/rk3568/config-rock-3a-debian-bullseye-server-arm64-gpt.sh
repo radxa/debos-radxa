@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 CMD=`realpath $0`
 CONFIG_BOARD_DIR=`dirname $CMD`
@@ -18,12 +19,12 @@ export FORMAT=gpt
 export IMAGESIZE=4000MB
 
 # Add pre-installed packages for target system
-cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list <<EOF
+cat > "$BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list" <<EOF
 
 EOF
 
 # Add yaml variable
-cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-variable.yaml <<EOF
+cat > "$BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-variable.yaml" <<EOF
 {{- \$cpu := or .cpu "${CPU}" -}}
 {{- \$board := or .board "${BOARD}" -}}
 {{- \$architecture := or .architecture "${ARCH}" -}}
@@ -37,7 +38,7 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-variab
 EOF
 
 # Add images yaml
-cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.list <<EOF
+cat > "$BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.list" <<EOF
 00_architecture.yaml
 01_debootstrap_debian.yaml
 02_partitions_upstream.yaml
