@@ -57,7 +57,6 @@ cat > $BUILD_DIR/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-yaml.l
 21_packages_devel.yaml
 21_packages_libs_debian.yaml
 21_packages_math.yaml
-21_packages_mpv.yaml
 21_packages_python_debian.yaml
 21_packages_sound.yaml
 21_packages_utilities.yaml
