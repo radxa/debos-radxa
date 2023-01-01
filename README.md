@@ -78,10 +78,10 @@ Enter Docker container...
 root@terra:~/debos-radxa#
 </pre>
 
-Launch `./build.sh` to get build options.
+Launch `./build-os.sh` to get build options.
 
 <pre>
-root@terra:~/debos-radxa# ./build.sh
+root@terra:~/debos-radxa# ./build-os.sh
 TOP DIR = /build/stephen/debos-radxa
 ====USAGE: ./build-os.sh -b <board> -m <model>====
 Board list:
@@ -164,7 +164,7 @@ The generated system images will be copied to `./output` direcotry. You can spec
 
 ## How to debug errors
 
-Launch `dev-shell` to get a shell inside debos docker. You can then run `build.sh` to monitor the build status. debos mounts root partition at `/scratch/mnt`, and boot partition is mounted at `/scratch/mnt/boot`. You can also `chroot /scratch/mnt` to examine the file system.
+Launch `dev-shell` to get a shell inside debos docker. You can then run `build-os.sh` to monitor the build status. debos mounts root partition at `/scratch/mnt`, and boot partition is mounted at `/scratch/mnt/boot`. You can also `chroot /scratch/mnt` to examine the file system.
 
 Currently `dev-shell` uses a custom docker image to build, so your result might be different from GitHub build. If you want to reproduce GitHub build please use the command from Usage section.
 
