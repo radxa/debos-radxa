@@ -23,4 +23,5 @@ cmdline: coherent_pool=1m
 
 dtoverlay=rk3568-fiq-debugger-uart2m0
 dtoverlay=rk3568-disable-npu
+dtoverlay=radxa-cm3-io-i2c0-pcf85063
 

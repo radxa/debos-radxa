@@ -2,7 +2,10 @@
     description: Net
     packages: [
         isc-dhcp-client, avahi-utils, avahi-daemon, dhcpcd5, ethtool, fping,
-        iperf3, iproute2, iputils-ping, iw, net-tools, network-manager, ntp,
+        iperf3, iproute2, iputils-ping, iw, net-tools, ntp,
         openssh-client, openssh-server, resolvconf, ssh, wireless-tools,
         wpasupplicant, nmap ]
 
+  - action: run
+    chroot: true
+    script: scripts/dhcpcd_wpa_supplicant.sh

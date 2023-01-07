@@ -1,8 +1,7 @@
   - action: apt
     description: libs
     packages: [
-        gstreamer1.0-x, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
-        gstreamer1.0-plugins-bad, gstreamer1.0-plugins-ugly, libxml2,
+        libxml2,
         libpcap0.8, libaudit1, libnotify4, libc6, libjson-c-dev,
         libgtest-dev, libstdc++6, libmraa
 {{ if eq $model "debian"}}

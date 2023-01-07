@@ -146,7 +146,7 @@ radxa@x86-64:~$ cd ~
 radxa@x86-64:~$ cd debos-radxa/
 radxa@x86-64:~/debos-radxa$
 radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
---workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -b rock-3a -m ubuntu
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -b radxa-cm3-io -m debian -v mxadvance
 </pre>
 
 #### Example two of building radxa-zero2-ubuntu-focal-server-arm64-mbr image

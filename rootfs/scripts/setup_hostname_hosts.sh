@@ -13,12 +13,12 @@ rm -rf /etc/hosts /etc/hostname
 touch /etc/hosts /etc/hostname
 
 cat <<-EOF > /etc/hostname
-$BOARD
+ADXXXX
 EOF
 
 cat <<-EOF > /etc/hosts
 127.0.0.1 localhost
-127.0.1.1 $BOARD
+127.0.1.1 ADXXXX
 
 # The following lines are desirable for IPv6 capable hosts
 #::1     localhost ip6-localhost ip6-loopback

@@ -10,8 +10,6 @@
 {{ end }}
         glmark2-data, glmark2-es2-x11,
 
-        libkms1=2.4.104-1, libdrm-cursor=1.3.0-1, libdrm-cursor-dev=1.3.0-1,
-
-        openbox
+        libkms1=2.4.104-1, libdrm-cursor=1.3.0-1, libdrm-cursor-dev=1.3.0-1
         ]
 

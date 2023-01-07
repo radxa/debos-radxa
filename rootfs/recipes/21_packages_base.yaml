@@ -11,12 +11,10 @@
 
         bc,
 
-        net-tools, isc-dhcp-client, iputils-ping, network-manager,
+        net-tools, isc-dhcp-client, iputils-ping,
         openssh-client, openssh-server, ssh, bluez,
 
         gnupg2,
 
-        i2c-tools,
-
-        resize-assistant ]
+        i2c-tools]
 

@@ -62,11 +62,21 @@ prepare_build() {
         cp -av $TOP_DIR/rootfs/fs-overlay/${BOARD}/overlays/* $BUILD_DIR/overlays
     fi
 
-    cp -av ${BUILD_DIR}/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list ${BUILD_DIR}/overlays/packages/preinstall-packages.list
-
     cp -av $ROOTFS_DIR/recipes/*.yaml $BUILD_DIR/recipes/
     cp -av $ROOTFS_DIR/scripts/*.sh $BUILD_DIR/scripts/
 
+    # Kernel packages
+    cp -av ${BUILD_DIR}/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-kernel.list ${BUILD_DIR}/overlays/packages/kernel-packages.list
+    echo "${BOARD}-${MODEL}-${DISTRO}-${ARCH}-${VARIANT}-${FORMAT}-kernel.list"
+    cat $BUILD_DIR/overlays/packages/kernel-packages.list
+
+    for pkg in `cat $BUILD_DIR/overlays/packages/kernel-packages.list`
+    do
+        cp -av `find $ROOTFS_DIR/packages/${ARCH} -name "$pkg"` $BUILD_DIR/overlays/packages/
+    done
+
+    # Preinstall Packages
+    cp -av ${BUILD_DIR}/${BOARD}-${MODEL}-${DISTRO}-${VARIANT}-${ARCH}-${FORMAT}-packages.list ${BUILD_DIR}/overlays/packages/preinstall-packages.list
     echo "${BOARD}-${MODEL}-${DISTRO}-${ARCH}-${VARIANT}-${FORMAT}-packages.list"
     cat $BUILD_DIR/overlays/packages/preinstall-packages.list
 
@@ -102,7 +112,7 @@ generate_target_yaml() {
 
 debos_system_image() {
     echo "====debos $BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT start===="
-    cd $OUTPUT_DIR && debos --print-recipe --show-boot -v $DEBUG_SHELL $TARGET_YAML
+    cd $OUTPUT_DIR && debos --memory=4096MB --cpus=10  --print-recipe --show-boot -v $DEBUG_SHELL $TARGET_YAML
     echo "====debos $BOARD-$MODEL-$DISTRO-$VARIANT-$ARCH-$FORMAT end===="
 }
 

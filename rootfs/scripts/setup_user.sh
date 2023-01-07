@@ -8,7 +8,8 @@ if [[ "$(id -u)" -ne "0" ]]; then
 fi
 
 # setup user
-USER=${1-rock}
+USER="wemaintain"
+PASSWORD="onesttoosla"
 
 adduser --gecos "$USER" \
         --disabled-password \
@@ -20,4 +21,4 @@ adduser "$USER" sudo
 adduser "$USER" video
 #adduser "$USER" render
 
-echo "$USER:$USER" | chpasswd
+echo "$USER:$PASSWORD" | chpasswd

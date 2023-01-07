@@ -1,0 +1,29 @@
+  - action: overlay
+    source: overlays/boot
+    destination: /boot
+
+  - action: run
+    chroot: true
+    script: scripts/fix_uenv.sh {{$board}}
+
+  - action: run
+    chroot: true
+    script: scripts/fix_boot_scr.sh {{$board}}
+
+  - action: run
+    chroot: true
+    script: scripts/fix_config.sh {{$board}}
+
+  - action: apt
+    description: Install packages needed for kernel installation
+    packages: [
+        rockchip-overlay
+        ]
+
+  - action: overlay
+    source: overlays/packages/
+    destination: /packages
+
+  - action: run
+    chroot: true
+    script: scripts/install_kernel.sh
