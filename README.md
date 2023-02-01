@@ -24,9 +24,9 @@ Please note that the [release](https://github.com/radxa/debos-radxa/releases/lat
 
 Auto generated build images: https://github.com/radxa/debos-radxa/releases/latest
 
-## Build Host
+## Build Host PC
 
-### Required Packages for the Build Host
+### Required Packages for the Build Host PC
 
 You must install essential host packages on your build host.
 
@@ -55,35 +55,14 @@ radxa@x86-64:~$ git clone https://github.com/radxa/debos-radxa.git
 
 ## Build Your Image
 
-### Part One: Build image step by step
-
-Launch `dev-shell` to get a shell inside debos docker.
+### Get supported board system images
 
 <pre>
-radxa@x86-64:~$ cd debos-radxa
-radxa@x86-64:~/debos-radxa$ ./docker/dev-shell
-Building Docker environment...
-Sending build context to Docker daemon   2.56kB
-Step 1/11 : FROM debian:testing
- ---> fb444549e96f
-...
-...
-...
-Step 11/11 : ENV USER=root     HOME=/root
- ---> Using cache
- ---> bc195e420707
-Successfully built bc195e420707
-Successfully tagged debos-radxa:1
-Enter Docker container...
-root@terra:~/debos-radxa#
-</pre>
-
-Launch `./build-os.sh` to get build options.
-
-<pre>
-root@terra:~/debos-radxa# ./build-os.sh
+radxa@x86-64:~$ cd ~/debos-radxa/
+radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos
 TOP DIR = /build/stephen/debos-radxa
-====USAGE: ./build-os.sh -b <board> -m <model>====
+====USAGE: ./build-os.sh -b <board> -m <model> -v <variant>====
 Board list:
     radxa-cm3-io
     radxa-e23
@@ -102,65 +81,33 @@ Board list:
 Model list:
     debian
     ubuntu
+
+Variant list:
+    xfce4
+    server
 </pre>
 
-Start to build image such as rock-5b-ubuntu-focal-server-arm64-gpt image.
+### Build system image
+
+#### Exanple: Build ROCK 5B Debian11 Xfce4 image
 
 <pre>
-root@terra:~/debos-radxa# ./build-os.sh -b rock-5b -m ubuntu
-TOP DIR = /home/radxa/debos-radxa
-====Start to build  board system image====
-TOP DIR = /home/radxa/debos-radxa
-====Start to preppare workspace directory, build====
-...
-...
-...
-====debos rock-5b-ubuntu-focal-server-arm64-gpt end====
-TOP DIR = /home/radxa/debos-radxa
- System image rock-5b-ubuntu-focal-server-arm64-20220308-1107-gpt.img is generated. See it in /home/radxa/debos-radxa/output
-/home/radxa/debos-radxa
-====Building  board system image is done====
-====Start to clean system images====
-TOP DIR = /home/radxa/debos-radxa
-I: show all system images:
-total 329092
-drwxr-xr-x  2 root root      4096 Mar  8 11:09 .
-drwxrwxr-x 10 1002 1002      4096 Mar  8 11:08 ..
--rw-r--r--  1 root root    139442 Mar  8 11:07 rock-5b-ubuntu-focal-server-arm64-20220308-1107-gpt.img.bmap
--rw-r--r--  1 root root        90 Mar  8 11:07 rock-5b-ubuntu-focal-server-arm64-20220308-1107-gpt.img.md5.txt
--rw-r--r--  1 root root 336828856 Mar  8 11:07 rock-5b-ubuntu-focal-server-arm64-20220308-1107-gpt.img.xz
-====Cleaning system images is done====
-root@terra:~/debos-radxa#
+radxa@x86-64:~$ cd ~/debos-radxa/
+radxa@x86-64:~/debos-radxa$
+radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -b rock-5b -m debian -v xfce4
+</pre>
+
+#### Example: Build ROCK 3A Ubuntu20 server image
+
+<pre>
+radxa@x86-64:~$ cd ~/debos-radxa/
+radxa@x86-64:~/debos-radxa$
+radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
+--workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -b rock-3a -m ubuntu -v server
 </pre>
 
 The generated system images will be copied to `./output` direcotry.
-
-### Part Two: Build image with one line command
-
-#### Example one of building rock-3a-ubuntu-focal-server-arm64-gpt image
-
-In this example we will build ROCK 3A's system image with full options:
-
-<pre>
-radxa@x86-64:~$ cd ~
-radxa@x86-64:~$ cd debos-radxa/
-radxa@x86-64:~/debos-radxa$
-radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
---workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -b rock-3a -m ubuntu
-</pre>
-
-#### Example two of building radxa-zero2-ubuntu-focal-server-arm64-mbr image
-
-You can also build supported configuration with the following commands:
-
-<pre>
-radxa@x86-64:~$ cd ~
-radxa@x86-64:~$ cd debos-radxa/
-radxa@x86-64:~/debos-radxa$ docker run --rm --interactive --tty --tmpfs /dev/shm:rw,nosuid,nodev,exec,size=4g --user $(id -u) --security-opt label=disable \
---workdir $PWD --mount "type=bind,source=$PWD,destination=$PWD" --entrypoint ./build-os.sh godebos/debos -m ubuntu -b radxa-zero2
-</pre>
-
-The generated system images will be copied to `./output` direcotry. You can specify different configuration in the 3rd line.
 
 ## How to debug errors
 

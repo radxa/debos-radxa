@@ -7,9 +7,10 @@ echo "TOP DIR = $TOP_DIR"
 
 board_list=("radxa-cm3-io" "radxa-e23" "radxa-e25" "radxa-nx5" "radxa-zero" "radxa-zero2" "rockpi-4b" "rock-4c-plus" "rock-3a" "rock-3b" "rock-3c" "rock-5a" "rock-5b" )
 model_list=("debian" "ubuntu")
+variant_list=("xfce4" "server")
 
 usage() {
-    echo "====USAGE: $0 -b <board> -m <model>===="
+    echo "====USAGE: $0 -b <board> -m <model> -v <variant>===="
 
     echo "Board list:"
     for board in ${board_list[@]}
@@ -22,6 +23,13 @@ usage() {
     for model in ${model_list[@]}
     do
         echo "    $model"
+    done
+
+    echo " "
+    echo "Variant list:"
+    for variant in ${variant_list[@]}
+    do
+        echo "    $variant"
     done
 }
 
